@@ -2,16 +2,16 @@
 ##### 1. User  
 has many tasks  
 has many bids  
--Email, primary key, lowercase  
--nickname, unique  
--account value  
+- Email, primary key, lowercase  
+- nickname, unique  
+- account value  
 
 ##### 2. Task  
 belongs to user  
 has many bids  
--title  
--description  
--release time  
+- title  
+- description  
+- release time  
 
 ##### 3. Bid  
 belongs to user  
