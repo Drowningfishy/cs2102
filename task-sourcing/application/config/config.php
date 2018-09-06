@@ -53,9 +53,9 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
  */
-define('DB_TYPE', 'mysql');
+define('DB_TYPE', 'pgsql');
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'mini');
-define('DB_USER', 'root');
-define('DB_PASS', '12345678');
+define('DB_NAME', 'cs2102');
+define('DB_USER', 'postgres');
+define('DB_PASS', 'postgres');
 define('DB_CHARSET', 'utf8mb4');

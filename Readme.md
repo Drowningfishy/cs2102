@@ -1,3 +1,25 @@
+## TODOS  
+#### 1. Install PHP dev environment. See project description. Set the username and password to "postgres".  
+This must include:  
+1. A PHP runtime.  
+2. Apache web server.  
+3. **Postgres** Database  
+#### 2. Go to localhost, see whether the installation is successful or not. Go to localhost/phpMyAdmin or localhost/phpPgAdmin to see whether can connect to the database. (must with username and password both set to postgres)  
+#### 3. Install Composer (php package admin tool).  
+#### 4. Copy the project files to your Apache server application directory (For me it's \apache2\htdocs) and delete everything originally there.  
+#### 5. Run "composer install" **in project directory, i.e. cs2102\task-sourcing)**.  
+#### 6. Go to localhost again, and see if there's anything out.  
+#### 7. **Get familiar with php syntax and mini3 "framework"(search it on github, and see others project based on mini3).**  
+#### 8. Look at the design below, and **Point out the problems, please!**.   
+#### 9. Search google to understand "MVC", "CRUD"   
+## During the meeting we will discuss:  
+#### 1. Task distribution.  
+#### 2. Detailed design of database (important, as this is a database module)  
+#### 3. Design of controller functions  
+#### 4. Design of views  
+#### 5. Design of exception handling, and testing  
+#### 6. Pre-alpha demo and future report.  
+
 #### Models:
 ##### 1. User  
 has many tasks  
