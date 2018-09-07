@@ -59,3 +59,38 @@ define('DB_NAME', 'cs2102');
 define('DB_USER', 'postgres');
 define('DB_PASS', 'postgres');
 define('DB_CHARSET', 'utf8mb4');
+
+ini_set('display_errors', 'on');
+
+$LS = new \Fr\LS(array(
+    'db'       => array(
+        'type'     => 'postgresql',
+        'host'     => 'localhost',
+        'port'     => 5432,
+        'username' => 'postgres',
+        'password' => 'postgres',
+        'name'     => 'cs2102',
+        'table'    => 'users',
+        'columns'  => array(
+        "id" => "id",
+        "username" => "username",
+        "password" => "password",
+        "email" => "email"
+        ),
+    ),
+    'features' => array(
+        'auto_init' => true,
+    ),
+    'pages'    => array(
+        'no_login'   => array(
+            APP . 'view/user/',
+            APP . 'view/user/reset.php',
+            APP . 'view/user/register.php',
+        ),
+        'everyone'   => array(
+            APP . 'view/user/status.php',
+        ),
+        'login_page' => APP . 'view/user/index.php',
+        'home_page'  => APP . 'view/home/index.php',
+    ),
+));

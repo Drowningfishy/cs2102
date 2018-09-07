@@ -14,7 +14,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "francium/logsys": "dev-master"
+    },
     "autoload":
     {
         "psr-4":
