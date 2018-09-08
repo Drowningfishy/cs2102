@@ -20,6 +20,12 @@ This must include:
 #### 5. Design of exception handling, and testing  
 #### 6. Pre-alpha demo and future report.  
 
+
+## Task to be completed:
+1. Modify view/user/index.php and view/user/register.php. I copied these two forms from somewhere else.
+2. Add some error desplaying and tracking system. Maybe include error messages in $_Get super parameter and desplay them in header?
+
+
 #### Models:
 ##### 1. User  
 has many tasks  
