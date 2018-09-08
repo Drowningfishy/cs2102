@@ -14,7 +14,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "ircmaxell/password-compat": "dev-master"
+    },
     "autoload":
     {
         "psr-4":

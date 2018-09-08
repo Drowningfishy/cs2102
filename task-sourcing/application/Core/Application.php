@@ -19,6 +19,9 @@ class Application
      */
     public function __construct()
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         // create array with URL parts in $url
         $this->splitUrl();
 

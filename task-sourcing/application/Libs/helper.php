@@ -54,4 +54,8 @@ class Helper
         return $raw_sql;
     }
 
+    static public function logged_in() {
+        return isset($_SESSION['login_user']);
+    }
+
 }
