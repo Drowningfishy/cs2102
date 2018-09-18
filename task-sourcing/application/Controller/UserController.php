@@ -26,7 +26,8 @@ class UserController
             header("Location:" . URL);
         } else {
             require APP . 'view/_templates/header.php';
-            require APP . 'view/user/index.php';
+            //require APP . 'view/user/index.php';
+            require APP . 'view/user/login.php';
             require APP . 'view/_templates/footer.php';
         }
     }
@@ -55,7 +56,8 @@ class UserController
             header('Location:' . URL);
         } else {
             include APP . 'view/_templates/header.php';
-            include APP . 'view/user/register.php';
+            //include APP . 'view/user/register.php';
+            include APP . 'view/user/signUp.php';
             include APP . 'view/_templates/footer.php';
         }
     }
