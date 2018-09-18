@@ -1,0 +1,78 @@
+
+.form-login{
+	padding-top:30px;
+	padding-bottom:100px;
+	text-align: center;
+	width:40%;
+	height:300px;
+	margin:auto;
+	line-height: 3em;
+	background-color:rgba(245,245,245,0.6);
+	border-radius: 5px;
+	
+}
+
+.form-login h1{
+	margin:0;
+	
+}
+
+
+.noaccount{
+	text-decoration: underline;
+	color:#333;
+	font-size:14px;
+	font-style: italic;
+}
+
+.email-only{
+	font-size:12px;
+	color:#666;
+	margin:0;
+	padding-right:300px;
+}
+
+#email{
+	width:80%;
+	height:30px;
+	border-radius:5px;
+	margin:0;
+}
+
+#password{
+	width:80%;
+	height:30px;
+	border-radius: 5px;
+	margin:0;
+	padding-top:0;
+}
+
+.pwd-only{
+	font-size:12px;
+	color:#666;
+	margin:0;
+	padding-right:325px;
+}
+
+.whole{
+	background-image: url('banner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-bottom:140px;
+	padding-top:20px;
+}
+
+#loginBtn{
+	width:80%;
+	height: 40px;
+	border-radius: 5px;
+	background-color:green;
+}
+
+#loginBtn a{
+	text-decoration: none;
+	font-size:14px;
+	color:rgb(245,245,245);
+}
+
+
