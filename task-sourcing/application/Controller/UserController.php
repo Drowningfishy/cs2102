@@ -43,8 +43,9 @@ class UserController
     }
 
     public function logout() {
-        if ($this->User->loggedIn()) {
-        $this->User->logout();
+        if (Helper::logged_in()) {
+            $this->User->logout();
+            $this -> index();
         }
         header('Location:' . URL);
     }
