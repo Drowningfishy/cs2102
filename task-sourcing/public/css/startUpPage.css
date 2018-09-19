@@ -5,8 +5,8 @@ body{
 }
 
 .box-1{
-	padding-top:100px;
-	padding-bottom: 220px;
+	position:absolute;
+	height:500px;
 	text-align: center;
 	width:100%;
 	background-image: url("banner.jpg");
@@ -18,7 +18,7 @@ body{
 .box-1 h1{
 	font-size:40px;
 	margin:0;
-	padding:0;
+	padding-top:100px;
 }
 
 .box-1 h6{
@@ -30,15 +30,12 @@ body{
 }
 
 .bar{
-	position: absolute;
+	position: relative;
 	width:80%;
 	left:10%;
-	padding-bottom:54px;
-	background-color:#FFFAFA;
-	opacity: 0.12;
 }
 .decor{
-	position: absolute;
+	position: relative;
 	width:80%;
 	left:10%;
 	padding-bottom:8px;
@@ -46,29 +43,31 @@ body{
 	opacity: 0.58;
 }
 
+.hyperlink{
+	float:right;
+}
+
 .bartext{
-	position: absolute;
-	width:80%;
-	left:10%;
-	padding-top:14px;
-	
+	padding-top:3px;
 }
 
 .logo{
-	padding-left:12px;
-	padding-right:580px;
+	float:left;
 }
 
+.clear{
+	clear:both;
+}
 .bartext a{
-	padding-top:12px;
-	padding-bottom:16px;
+	padding-top:7px;
+	padding-bottom:7px;
 	padding-left:6px;
 	padding-right:6px;
 	text-decoration: none;
 	color:  #333;
+	text-align: center;
 }
 .bartext a:hover{
-   background-color:#696969;
   color:#F5F5F5;
   -webkit-transition: all 1s;
      -moz-transition: all 1s;
@@ -80,45 +79,44 @@ body{
 	position: absolute;
 	width:25%;
 	left:6.25%;
-	top:75%;
+	top:92%;
 	background-color:#666;
 	margin:0;
-	padding-bottom:60px;
 	text-align:center;
+	height:200px;
 }
 
 .example2{
 	position: absolute;
 	width:25%;
 	left:37.5%;
-	top:75%;
+	top:92%;
 	background-color:#666;
 	margin:0;
-	padding-bottom:60px;
 	text-align:center;
+	height:200px;
 }
 
 .example3{
 	position: absolute;
 	width:25%;
 	left:68.75%;
-	top:75%;
+	top:92%;
 	background-color:#666;
 	margin:0;
-	padding-bottom:60px;
 	text-align:center;
+	height:200px;
 }
 
 .background{
 	background-color:#DCDCDC;
 	width:100%;
 	padding-bottom:220px;
-	margin-top:0;
-	margin-bottom: 0;
+	padding-top:500px;
 }
 
 .process{
-	padding-top:15px;
+	padding-top:10px;
 	width:100%;
 	padding-bottom:220px;
 	text-align:center;
@@ -130,3 +128,4 @@ body{
 	text-align: center;
 	font-style: italic;
 }
+
