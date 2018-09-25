@@ -55,8 +55,8 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  */
 define('DB_TYPE', 'pgsql');
 define('DB_HOST', 'localhost');
-define('DB_PORT', '5432');
+define('DB_PORT', '5431');
 define('DB_NAME', 'cs2102');
 define('DB_USER', 'postgres');
-define('DB_PASS', 'postgres');
-define('DB_CHARSET', 'utf8mb4');
+define('DB_PASS', 'Szdxr981217!');
+define('DB_CHARSET', 'utf8');
