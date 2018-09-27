@@ -4,6 +4,51 @@ body {
     color: #454545;
 }
 
+.bar{
+    position: absolute;
+    padding-top:8px;
+    width:80%;
+    left:10%;
+}
+.decor{
+    position: absolute;
+    width:80%;
+    left:10%;
+    background-color:#333;
+    opacity: 0.58;
+}
+
+
+.logo{
+    float:left;
+}
+
+.hyperlink{
+    float:right;
+}
+
+.bartext{
+    padding-top:3px;
+}
+
+
+.bartext a{
+    padding-top:7px;
+    padding-bottom:7px;
+    padding-left:6px;
+    padding-right:6px;
+    text-decoration: none;
+    color:  #333;
+    text-align: center;
+}
+.bartext a:hover{
+  color:#F5F5F5;
+  -webkit-transition: all 1s;
+     -moz-transition: all 1s;
+       -o-transition: all 1s;
+          transition: all 1s;
+}
+
 .navigation {
     margin-left: 33px;
 }
@@ -72,11 +117,13 @@ body {
     color: #fff;
 }
 .footer {
+    position: relative;
     border-radius: 3px;
     padding: 20px;
     margin: 33px;
     text-align: right;
     font-size: 11px;
+    text-align:center;
 }
 .footer a {
     color: #454545;

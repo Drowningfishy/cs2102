@@ -1,4 +1,5 @@
 
+    <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
     <div class="footer">
         This project is build based on MINI3. Find <a href="https://github.com/panique/mini3">MINI3 on GitHub</a>. Copyright &copy;2018, cs2102 team 49 All rights reserved.
     </div>

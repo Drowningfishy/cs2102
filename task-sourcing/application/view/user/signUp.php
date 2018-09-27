@@ -38,7 +38,7 @@
 				
 				<br>
 
-				<a href="/logIn" class="hasaccount">Already have an account?</a>
+				<a href="/user/index" class="hasaccount">Already have an account?</a>
 		    
 		    </form>
 		</div>

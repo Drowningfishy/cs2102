@@ -31,12 +31,16 @@
 
 		<div class = "bar">
 			<div class="bartext">
-				<div class='logo'>Logo</div>			
-				<a class="login" id="login" href="<?php echo URL; ?>user/index">Login</a>
-				<a class="contact" id="contact" href="#">Contact</a>
-			</div>
+			 <div class='logo'>Logo</div>
+                <div class="hyperlink"> 
+                    <a class="home" id="home" href="<?php echo URL; ?>">Home</a>
+                    <a class="login" id="login" href="<?php echo URL; ?>user/index">Login</a>
+                    <a class="logout" id="logout" href="?php echo URL; ?>user/logout">Logout</a>
+                </div>
+            </div>
 		</div>
 		
+
 		<div class="background">
 		</div>
 
@@ -47,10 +51,6 @@
 
 		<div style="margin-top:30px"></div>
 
-		
-		<footer id="main-footer">
-			<p>Copyright &copy;2018, cs2102 team 49 All rights reserved.</p>
-		</footer>
 
 	</body>
 

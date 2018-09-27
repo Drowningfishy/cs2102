@@ -29,43 +29,44 @@ body{
 	padding:0;
 }
 
+
+
 .bar{
-	position: relative;
-	width:80%;
-	left:10%;
+    position: absolute;
+    padding-top:8px;
+    width:80%;
+    left:10%;
 }
 .decor{
-	position: relative;
-	width:80%;
-	left:10%;
-	padding-bottom:8px;
-	background-color:#333;
-	opacity: 0.58;
+    position: absolute;
+    width:80%;
+    left:10%;
+    background-color:#333;
+    opacity: 0.58;
+}
+
+
+.logo{
+    float:left;
 }
 
 .hyperlink{
-	float:right;
+    float:right;
 }
 
 .bartext{
-	padding-top:3px;
+    padding-top:3px;
 }
 
-.logo{
-	float:left;
-}
 
-.clear{
-	clear:both;
-}
 .bartext a{
-	padding-top:7px;
-	padding-bottom:7px;
-	padding-left:6px;
-	padding-right:6px;
-	text-decoration: none;
-	color:  #333;
-	text-align: center;
+    padding-top:7px;
+    padding-bottom:7px;
+    padding-left:6px;
+    padding-right:6px;
+    text-decoration: none;
+    color:  #333;
+    text-align: center;
 }
 .bartext a:hover{
   color:#F5F5F5;
@@ -74,6 +75,12 @@ body{
        -o-transition: all 1s;
           transition: all 1s;
 }
+
+
+.clear{
+	clear:both;
+}
+
 
 .example1{
 	position: absolute;
@@ -123,9 +130,4 @@ body{
 	margin:0;
 }
 
-#main-footer{
-	font-size:15px;
-	text-align: center;
-	font-style: italic;
-}
 

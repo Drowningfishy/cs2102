@@ -59,4 +59,3 @@ define('DB_PORT', '5432');
 define('DB_NAME', 'cs2102');
 define('DB_USER', 'postgres');
 define('DB_PASS', 'postgres');
-define('DB_CHARSET', 'utf8mb4');
