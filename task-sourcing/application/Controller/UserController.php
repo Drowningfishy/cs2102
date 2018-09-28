@@ -23,7 +23,10 @@ class UserController
     }
     public function index() {
         if (Helper::logged_in()) {
-            header("Location:" . URL);
+            require APP . 'view/_templates/header.php';
+            //require APP . 'view/user/index.php';
+            require APP . 'view/user/homepage.php';
+            require APP . 'view/_templates/footer.php';
         } else {
             require APP . 'view/_templates/header.php';
             //require APP . 'view/user/index.php';
@@ -70,7 +73,7 @@ class UserController
         
         if ($password == $password_confirmation) {
             if ($this -> User -> register($email, $name, $password)) {
-                header('Location: ' . URL . 'user/login');
+                header('Location: ' . URL . 'user/index');
             } else {
                 header('Location:' . URL);
             }
