@@ -26,3 +26,12 @@
          </div>
 
     </div>
+    <!--
+    <h1> <?php if (isset($_SESSION['message'])) {
+        echo '123test';
+        echo $_SESSION['message']['status']. '   '.$_SESSION['message']['message'];
+        unset($_SESSION['message']);
+    } else {
+        echo 'no message';
+    } ?> </h1>
+    -->

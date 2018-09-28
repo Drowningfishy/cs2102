@@ -58,4 +58,8 @@ class Helper
         return isset($_SESSION['login_user']);
     }
 
+    static public function is_admin() {
+        return isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin;
+    }
+
 }

@@ -40,18 +40,52 @@ class UserController
         $password = $_POST['password'];
 
         if ($this -> User ->login($email, $password)) {
+            /*
+            $_SESSION['message'] = array(
+                'status' => 'ok',
+                'message' => 'You have logged in.'
+            );
+            */
             header("Location:" . URL);
         } else {
+            /*
+            $_SESSION['message'] = array(
+                'status' => 'error',
+                'message' => 'Password and username not match.'
+            );
+            */
             $this -> register();
         }
     }
 
     public function logout() {
         if (Helper::logged_in()) {
-            $this->User->logout();
+            $this ->User -> logout();
             $this -> index();
+            /* $_SESSION['message'] = array(
+                'status' => 'ok',
+                'message' => 'You have logged out.'
+            ); */
         }
         header('Location:' . URL);
+    }
+
+    public function addValue() {
+        $email = $_POST['email'];
+        $valueToAdd = $_POST['valueToAdd'];
+        if (Helper::is_admin()) {
+            if ($this -> User -> adminAddValue($email, $valueToAdd)) {
+                /* $_SESSION['message'] = array(
+                    'status' => 'ok',
+                    'message' => 'You have successfully added '. $valueToAdd. ' to '. $email. '.'
+                ); */
+            } else {
+                /* $_SESSION['message'] = array(
+                    'status' => 'error',
+                    'message' => 'You do not have admin power. Illegal access.'
+                ); */
+            }
+        }
     }
     
     public function register() {
