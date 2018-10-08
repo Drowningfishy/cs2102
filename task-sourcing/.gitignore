@@ -1,3 +1,4 @@
 .phpintel
 vendor/
 /application/config/config.php
+.vscode/
