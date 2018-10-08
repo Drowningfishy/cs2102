@@ -22,7 +22,7 @@ class User extends Model
     /**
      * Get all users from database
      */
-    public function getAllUsers() {
+    public static function getAllUsers() {
         $sql = "SELECT * FROM users";
         $query = $this->db->prepare($sql);
         $query->execute();
