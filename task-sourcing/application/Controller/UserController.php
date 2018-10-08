@@ -92,10 +92,10 @@ class UserController
         if (Helper::logged_in()) {
             header('Location:' . URL);
         } else {
-            include APP . 'view/_templates/header.php';
-            //include APP . 'view/user/register.php';
-            include APP . 'view/user/signUp.php';
-            include APP . 'view/_templates/footer.php';
+            require APP . 'view/_templates/header.php';
+            //require APP . 'view/user/register.php';
+            require APP . 'view/user/signUp.php';
+            require APP . 'view/_templates/footer.php';
         }
     }
 
