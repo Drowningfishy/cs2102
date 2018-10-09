@@ -42,8 +42,10 @@ class TaskController
     //This method is for post only
     public function createTask() {
         //TODO: Fill in the variables
-        $name = $_POST['name'];
-        if ($this -> Task -> createTask($name)) {
+        $name = $_POST['taskname'];
+        $point = $_POST['point'];
+        $description = $_POST['description'];
+        if ($this -> Task -> createTask($name, $description, $point)) {
             header("Location:" . URL. "task/index");
         } else {
             header("Location:" . URL. "task/index");
