@@ -9,7 +9,7 @@
 		<div class="profilelogo">Here should be Logo</div>
 
 		<div class="function1">Search for task</div>
-		<div class="function2">Submitted tasks</div>
+		<div class="function2">Published Tasks Management</div>
 
 		<div class="profile">
 			<div class = "username"><h1><?php if (Mini\Libs\Helper::logged_in()) {echo $_SESSION['login_user'] -> name; } else {echo "Nickname";};  ?></h1> </div>
@@ -20,7 +20,7 @@
 		</div>
 
 		<div class="function3">CRUD entries(admin only)</div>
-		<div class="function4">Submit your task</div>
+		<div class="function4">Task Bidding management</div>
 	</div>
 
 	<div class="clear"></div>
