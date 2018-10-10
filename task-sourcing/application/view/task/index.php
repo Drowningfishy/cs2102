@@ -22,8 +22,7 @@
                 <div class="clear"></div>
                 <label> <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <button class="delete2" href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id ?>">Delete</button>
-                <button class="delete3" href="<?php echo URL; ?>task/update/<?php echo $task -> task_id ?>">Update</button>
+                <button class="delete2" href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>">Detail</button>
             </li>
         <?php }
           } ?>

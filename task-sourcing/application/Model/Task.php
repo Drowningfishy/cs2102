@@ -47,6 +47,21 @@ class Task extends Model
         return $query->fetchAll();
     }
 
+    public function getBidsByTask($task_id)
+    {
+        $sql = "SELECT * FROM bids WHERE task_id = :task_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' =>  (int)$task_id
+        );
+        try {
+            $query->execute($parameters);
+            return $query->fetchAll();
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+
     //TODO: Fill into correct sql and correct parameters.
     public function createTask($name, $description, $point, $owner_email) {
         $sql = "INSERT INTO tasks_owned (task_name, expect_point, description, owner_email) VALUES (:task_name, :expect_point, :description, :owner_email)";
@@ -99,25 +114,19 @@ class Task extends Model
         }
     }
 
-    public function assignWinner($task_id, $winner_email) {
-        $sql = "";
-        $query = $this->db->prepare($sql);
-        try {
-            $query->execute();
-            return true;
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
+    
 
-    public function getWinner($task_id) {
-        $sql = "";
+    public function getWinnerEmail($task_id) {
+        $sql = "SELECT assignee_email FROM assign WHERE task_id = :task_id";
         $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' =>  (int)$task_id
+        );
         try {
-            $query->execute();
-            return true;
+            $query->execute($parameters);
+            return ($query->fetchAll());
         } catch (PDOException $e) {
-            return false;
+            return null;
         }
     }
 }

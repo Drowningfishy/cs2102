@@ -25,56 +25,78 @@ class Bid extends Model
         return $query->fetchAll();
     }
 
-    //TODO: Fill into correct sql and correct parameters.
-    public function getBidsByTask($task_id)
-    {
-        $sql = "";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetchAll();
-    }
-
-    //TODO: Fill into correct sql and correct parameters.
     public function getBidsByUser($user_email)
     {
-        $sql = "";
+        $sql = "SELECT * FROM bids WHERE bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetchAll();
+        $parameters = array(
+            ':bidder_email' =>  $user_email
+        );
+        try {
+            $query->execute($parameters);
+            return $query->fetchAll();
+        } catch (PDOException $e) {
+            return null;
+        }
     }
 
-    //TODO: Fill into correct sql and correct parameters.
     public function createBid($task_id, $user_email, $value) {
-        $sql = "";
+        $sql = "INSERT INTO bids (task_id, bidder_email, bidding_point) VALUES (:task_id, :bidder_email, :bidding_point)";
+        //echo $sql;
         $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' => (int)$task_id,
+            ':bidder_email' => $user_email,
+            ':bidding_point' => $value
+        );
         try {
-            $query->execute();
-            return true;
+            $query->execute($parameters);
+            return $sql;
         } catch (PDOException $e) {
             return false;
         }
     }
 
-    //TODO: Fill into correct sql and correct parameters.
     public function updateBid($task_id, $user_email, $value) {
-        $sql = "";
+        $sql = "UPDATE bids SET bidding_point = :bidding_point WHERE task_id = :task_id, bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' => (int)$task_id,
+            ':bidder_email' => $user_email,
+            ':bidding_point' => $value
+        );
         try {
-            $query->execute();
+            $query->execute($parameters);
             return true;
         } catch (PDOException $e) {
             return false;
         }
     }
 
-    //TODO: Fill into correct sql and correct parameters.
     public function deleteBid($task_id, $user_email) {
-        $sql = "";
+        $sql = "DELETE FROM bids WHERE task_id = :task_id, bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' => (int)$task_id,
+            ':bidder_email' => $user_email,
+        );
         try {
-            $query->execute();
+            $query->execute($parameters);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function assignWinner($task_id, $winner_email) {
+        $sql = "INSERT INTO assign (time, task_id, assignee_email) VALUES (now(), :task_id, :assignee_email)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' =>  (int)$task_id,
+            ':assignee_email' => $winner_email,
+        );
+        try {
+            $query->execute($parameters);
             return true;
         } catch (PDOException $e) {
             return false;

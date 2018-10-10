@@ -32,6 +32,10 @@ class TaskController
         //var_dump($task_id);
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
+            $bids = $this -> Task -> getBidsByTask($task_id);
+            var_dump($bids);
+            $winner_email = $this -> Task -> getWinnerEmail($task_id);
+            var_dump($winner_email);
             //var_dump($task);
             require APP . 'view/_templates/header.php';
             require APP . 'view/task/detail.php';
