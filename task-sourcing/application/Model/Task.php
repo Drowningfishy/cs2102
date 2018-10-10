@@ -9,6 +9,7 @@
 namespace Mini\Model;
 
 use Mini\Core\Model;
+use PDOException;
 
 class Task extends Model
 {
@@ -16,7 +17,7 @@ class Task extends Model
      * Get all tasks from database
      */
     public function getAllTasks(){
-        $sql = "SELECT * FROM task";
+        $sql = "SELECT * FROM tasks_owned";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -33,12 +34,29 @@ class Task extends Model
         return $query->fetchAll();
     }
 
-    //TODO: Fill into correct sql and correct parameters.
-    public function createTask() {
-        $sql = "";
+    
+    public function getTaskByPartialName($task_name)
+    {
+        $sql = "SELECT * FROM tasks_owned WHERE task_name LIKE :task_name" ;
         $query = $this->db->prepare($sql);
+        $parameters = array(':task_name' => $task_name);
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+
+    //TODO: Fill into correct sql and correct parameters.
+    public function createTask($name, $description, $point, $owner_email) {
+        $sql = "INSERT INTO tasks_owned (task_name, expect_point, description, owner_email) VALUES (:task_name, :expect_point, :description, :owner_email)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_name' => $name,
+            ':expect_point' => $point,
+            ':description' => $description,
+            ':owner_email' => $owner_emai
+        );
         try {
-            $query->execute();
+            $query->execute($parameters);
             return true;
         } catch (PDOException $e) {
             return false;

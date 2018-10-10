@@ -4,11 +4,11 @@
 
 
 <body>
-<div><a href="homepage.php"><button>return</button></a> </div>
+<div><a href="/task/index"><button>return</button></a> </div>
 <div class="submit" align="center">
 <fieldset>
 <legend>Create Task(Admin only)</legend> 
-<form action="user/homepage" method="post">   
+<form action="/task/createTask" method="post">   
     Task ID*: <input type="text" name="taskid" placeholder="Please enter task id" required="required">
     <br>
     <br>
@@ -28,11 +28,5 @@
 </form>
 </fieldset>
 </div>
-
-
-
-
-
-
 
 </body></html>

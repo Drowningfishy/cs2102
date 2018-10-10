@@ -9,6 +9,7 @@
 namespace Mini\Model;
 
 use Mini\Core\Model;
+use PDOException;
 
 class Bid extends Model
 {

@@ -21,7 +21,7 @@
                 <div class="hyperlink"> 
                     <a class="home" id="home" href="<?php echo URL; ?>">Home</a>
                     <a class="login" id="login" href="<?php echo URL; ?>user/index">Login</a>
-                    <a class="logout" id="logout" href="?php echo URL; ?>user/logout">Logout</a>
+                    <a class="logout" id="logout" href="<?php echo URL; ?>user/logout">Logout</a>
                 </div>
          </div>
 
