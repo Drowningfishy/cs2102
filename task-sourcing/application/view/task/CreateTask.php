@@ -9,7 +9,6 @@
 <fieldset>
 <legend>Create Task(Admin only)</legend> 
 <form action="/task/createTask" method="post">   
-    Task ID*: <input type="text" name="taskid" placeholder="Please enter task id" required="required">
     <br>
     <br>
     Task Name*: <input type="text" name="taskname" placeholder="Please enter taskname" required="required">
@@ -21,8 +20,6 @@
     Lowest Required Point*: <input type="text" name="point" placeholder="Please enter point" required="required">
     <br>
     <br>
-
-    Email*: <input type="text" name="email" placeholder="Please enter email" required="required">
     <input type="reset" value="reset">
     <input type="submit" value="submit">
 </form>

@@ -19,7 +19,7 @@ CREATE	TABLE	tasks_owned	(
 task_id	NUMERIC	PRIMARY	KEY default nextval('rank_id_seq'),	
 task_name	VARCHAR(255)	NOT	NULL,	
 expect_point	NUMERIC	DEFAULT	0.00,	
-discription	VARCHAR(255),	
+description	VARCHAR(255),	
 owner_email	VARCHAR(255)	NOT	NULL,	
 FOREIGN	KEY(owner_email)	REFERENCES	users(email));		
 

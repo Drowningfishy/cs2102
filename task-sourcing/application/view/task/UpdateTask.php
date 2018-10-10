@@ -10,8 +10,8 @@
       <br>
 
 
-        <form action="/task/updateTask" method="post">   
-            Task ID*: taskId
+        <form action="/task/updateTask/<?php echo $task -> task_id;?>" method="post">   
+            Task ID*: <?php echo $task -> task_id; ?>
             <br>
             <br>
             Task Name*: <input type="text" name="newTaskname" placeholder="Please enter new taskname" required="required">

@@ -18,7 +18,7 @@
                 <div class="clear"></div>
                 <label> <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->discription, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
                 <label> <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>

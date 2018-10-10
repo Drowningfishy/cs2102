@@ -29,8 +29,10 @@ class TaskController
     }
 
     public function detail($task_id) {
+        //var_dump($task_id);
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
+            //var_dump($task);
             require APP . 'view/_templates/header.php';
             require APP . 'view/task/detail.php';
             require APP . 'view/_templates/footer.php';
@@ -50,7 +52,7 @@ class TaskController
     public function update($task_id) {
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
-            if ($task && Helper::logged_in() && ($task -> email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
+            if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 require APP . 'view/_templates/header.php';
                 require APP . 'view/task/UpdateTask.php';
                 require APP . 'view/_templates/footer.php';
@@ -68,7 +70,7 @@ class TaskController
         //TODO: Fill in the variables
         $name = $_POST['taskname'];
         $point = $_POST['point'];
-        $description = $_POST['description'];
+        $description = $_POST['taskDes'];
         if (Helper::logged_in() && $this -> Task -> createTask($name, $description, $point, $_SESSION['login_user'] -> email)) {
             header("Location:" . URL. "task/index");
         } else {
@@ -80,11 +82,13 @@ class TaskController
     public function updateTask($task_id) {
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
-            if ($task && Helper::logged_in() && ($task -> email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
+            if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 //TODO: Fill in the variables
-                $id = $_POST['id'];
-                $name = $_POST['name'];
-                if ($this -> Task -> updateTask($id, $name)) {
+                $id = $task_id;
+                $name = $_POST['newTaskname'];
+                $description = $_POST['newDes'];
+                $point = $_POST['newPoint'];
+                if ($this -> Task -> updateTask($id, $name, $description, $point)) {
                     header("Location:" . URL. "task/detail/". $id);
                 } else {
                     header("Location:" . URL. "task/detail/". $id);
@@ -92,10 +96,16 @@ class TaskController
             }
         }
     }
+    public function search() {
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/task/SearchForTask.php';
+        require APP . 'view/_templates/footer.php';
+    }
 
     public function searchTask() {
-        $name = $_POST['taskname'];
+        $name = $_POST['search'];
         $tasks = $this -> Task -> getTaskByPartialName($name);
+        //var_dump($tasks);
         require APP . 'view/_templates/header.php';
         require APP . 'view/task/SearchForTask.php';
         require APP . 'view/_templates/footer.php';
@@ -104,8 +114,9 @@ class TaskController
     public function delete($task_id) {
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
-            if ($task && Helper::logged_in() && ($task -> email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
-                if ($this -> Task -> deleteTask($id)) {
+            if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
+                var_dump($task);
+                if ($this -> Task -> deleteTask($task_id)) {
                     header("Location:" . URL. "task/index");
                 } else {
                     header("Location:" . URL. "task/index");
@@ -119,7 +130,7 @@ class TaskController
     public function assignWinner($task_id, $winner_email) {
         if (isset($task_id) && isset($winner_email)) {
             $task = $this -> Task -> getTaskById($task_id);
-            if ($task && Helper::logged_in() && ($task -> email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
+            if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if ($this -> Task -> assignWinner($task_id, $winner_email)) {
                     header("Location:" . URL. "task/detail/". $id);
                 } else {
