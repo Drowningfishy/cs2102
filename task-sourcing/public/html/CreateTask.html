@@ -1,0 +1,38 @@
+<html><head>
+<title>CreateTask</title>
+</head>
+
+
+<body>
+<div><a href="homepage.php"><button>return</button></a> </div>
+<div class="submit" align="center">
+<fieldset>
+<legend>Create Task(Admin only)</legend> 
+<form action="user/homepage" method="post">   
+    Task ID*: <input type="text" name="taskid" placeholder="Please enter task id" required="required">
+    <br>
+    <br>
+    Task Name*: <input type="text" name="taskname" placeholder="Please enter taskname" required="required">
+    <br>
+    <br>
+    Task Description: <textarea name = "taskDes"cols="40" rows="5" placeholder="Please enter task description"></textarea>
+    <br>
+    <br>
+    Lowest Required Point*: <input type="text" name="point" placeholder="Please enter point" required="required">
+    <br>
+    <br>
+
+    Email*: <input type="text" name="email" placeholder="Please enter email" required="required">
+    <input type="reset" value="reset">
+    <input type="submit" value="submit">
+</form>
+</fieldset>
+</div>
+
+
+
+
+
+
+
+</body></html>
