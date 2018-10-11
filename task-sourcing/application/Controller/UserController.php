@@ -13,6 +13,9 @@ namespace Mini\Controller;
 
 use Mini\Libs\Helper;
 use Mini\Model\User;
+use Mini\Model\Task;
+use Mini\Model\Bid;
+use PDO;
 
 class UserController
 {
@@ -46,7 +49,7 @@ class UserController
                 'message' => 'You have logged in.'
             );
             */
-            header("Location:" . URL);
+            header("Location:" . URL. 'user/index');
         } else {
             /*
             $_SESSION['message'] = array(
@@ -54,7 +57,7 @@ class UserController
                 'message' => 'Password and username not match.'
             );
             */
-            $this -> register();
+            header("Location:" . URL. 'user/register');
         }
     }
 
@@ -122,7 +125,80 @@ class UserController
                 header('Location:' . URL);
             }
         } else {
-            $this -> register();
+            header("Location:" . URL. 'user/register');
+        }
+    }
+
+    public function adminInit() {
+        function randomkeys($length){   
+            $output='';   
+            for ($a = 0; $a<$length; $a++) {   
+                $output .= chr(mt_rand(33, 126)); 
+             }   
+             return $output;   
+         } 
+        if (Helper::is_admin()) {
+            $Task = new Task();
+            $Bid = new Bid();
+            $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
+            $db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS, $options);
+            for ($i = 0; $i < 20; $i++) {
+                //$this -> User -> register(''.randomkeys(5).'@email.email', randomkeys(5), randomkeys(8));
+            }
+            $users = $this -> User -> getAllUsers();
+            foreach ($users as $user) {
+                for ($i = 0; $i < 6; $i++) {
+                    $sql = "INSERT INTO tasks_owned (task_name, expect_point, description, owner_email) VALUES (:task_name, :expect_point, :description, :owner_email)";
+                    //echo $sql;
+                    $query = $db->prepare($sql);
+                    $parameters = array(
+                        ':task_name' => randomkeys(6),
+                        ':expect_point' => mt_rand(0,35),
+                        ':description' => randomkeys(10),
+                        ':owner_email' => $user -> email
+                    );
+                    try {
+                        $query->execute($parameters);
+                        //return $sql;
+                    } catch (PDOException $e) {
+                        //return false;
+                    }
+                }
+            }
+            $tasks = $Task -> getAllTasks();
+            for ($i = 0; $i < 100; $i++) {
+                $randtask = $tasks[mt_rand(0,100)];
+                $randuser = $users[mt_rand(0,20)];
+                $sql = "INSERT INTO bids (task_id, bidder_email, bidding_point) VALUES (:task_id, :bidder_email, :bidding_point)";
+                //echo $sql;
+                $query =$db->prepare($sql);
+                $parameters = array(
+                    ':task_id' => $randtask -> task_id,
+                    ':bidder_email' => $randuser -> email,
+                    ':bidding_point' => mt_rand(0,35)
+                );
+                try {
+                    $query->execute($parameters);
+                    if ($i % 5 == 0) {
+                        $sql = "INSERT INTO assign (time, task_id, assignee_email) VALUES (now(), :task_id, :assignee_email)";
+                        $query = $db->prepare($sql);
+                        $parameters = array(
+                            ':task_id' =>  $randtask -> task_id,
+                            ':assignee_email' => $randuser -> email,
+                        );
+                        try {
+                            $query->execute($parameters);
+                            //return true;
+                        } catch (PDOException $e) {
+                            //return false;
+                        }
+                    }
+                } catch (PDOException $e) {
+                    
+                }
+            }
+         } else {
+            header('Location:' . URL);
         }
     }
 }
