@@ -40,6 +40,17 @@ class TaskController
         }
     }
 
+    public function mybid() {
+        if (Helper::logged_in()) {
+            $bided_tasks = $this -> Task -> getBidedTaskByUserEmail($_SESSION['login_user'] -> email);
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/task/mybid.php';
+            require APP . 'view/_templates/footer.php';
+        } else {
+            header("Location:" . URL. "user/index");
+        }
+    }
+
     public function detail($task_id) {
         //var_dump($task_id);
         if (isset($task_id)) {

@@ -23,12 +23,20 @@ class User extends Model
     /**
      * Get all users from database
      */
-    public static function getAllUsers() {
+    public function getAllUsers() {
         $sql = "SELECT * FROM users";
-        $query = $this->db->prepare($sql);
+        $query = $this -> db -> prepare($sql);
         $query->execute();
 
         return $query->fetchAll();
+    }
+    public function getUserByEmail($email) {
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $query = $this -> db -> prepare($sql);
+        $parameters = array(':email' => $email);
+        $query->execute($parameters);
+
+        return $query->fetch();
     }
     public function register($email, $name, $password) {
         $sql = "SELECT * FROM users WHERE email = :email";
@@ -71,11 +79,11 @@ class User extends Model
         }
     }
 
-    private function addValue($account, $valueToAdd) {
+    public function addValue($account, $valueToAdd) {
         $sql = "UPDATE users SET bidding_point_balance = :new_balance WHERE email = :email";
         $query = $this -> db -> prepare($sql);
         $parameters = array(
-            ':new_balance' => $account -> balance + $valueToAdd,
+            ':new_balance' => $account -> bidding_point_balance + $valueToAdd,
             ':email' => $account -> email);
         try {
             $query->execute($parameters);
@@ -85,6 +93,7 @@ class User extends Model
         }
     }
 
+    //TODO: [Refactor]Future admin add value will go through this first and addValue will be made private.
     public function adminAddValue($email, $valueToAdd) {
         if (Helper::is_admin()) {
             $sql = "SELECT name, email, password, bidding_point_balance, is_admin FROM users WHERE email = :email";

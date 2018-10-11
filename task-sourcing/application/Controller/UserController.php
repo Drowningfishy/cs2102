@@ -70,22 +70,32 @@ class UserController
         header('Location:' . URL);
     }
 
-    public function addValue() {
-        $email = $_POST['email'];
-        $valueToAdd = $_POST['valueToAdd'];
+    public function admin() {
         if (Helper::is_admin()) {
-            if ($this -> User -> adminAddValue($email, $valueToAdd)) {
-                /* $_SESSION['message'] = array(
-                    'status' => 'ok',
-                    'message' => 'You have successfully added '. $valueToAdd. ' to '. $email. '.'
-                ); */
-            } else {
-                /* $_SESSION['message'] = array(
-                    'status' => 'error',
-                    'message' => 'You do not have admin power. Illegal access.'
-                ); */
-            }
+            $users = $this -> User -> getAllUsers();
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/user/admintool.php';
+            require APP . 'view/_templates/footer.php';
+        } else {
+            header('Location:' . URL);
         }
+    }
+
+    public function addValue($user_email) {
+        if (Helper::is_admin()) {
+            $valueToAdd = $_POST['point'];
+            if (Helper::is_admin()) {
+                $account = $this -> User -> getUserByEmail($user_email);
+                if ($account && $this -> User -> addValue($account, $valueToAdd)) {
+                    header('Location:' . URL. 'user/admin');
+                } else {
+                    header('Location:' . URL. 'user/admin');
+                }
+            }
+        } else {
+            header('Location:' . URL);
+        }
+        
     }
     
     public function register() {
