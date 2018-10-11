@@ -1,55 +1,65 @@
 <html><head>
     <title>ReadTask</title>
 
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">   
-    <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>SubmitTask.css">
+        <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">   
+    <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/mytask.css">
+
+
   </head>
-  <body>
-      
-      <h3>My created tasks</h3>
+  </head>
+  <body align = "center">
+    <div class = "background">
+    <div class = "tasks">
+      <fieldset>
+      <legend><h3>My created tasks</h3></legend>
       <ul id="incompleted-tasks">
       <?php 
         if (isset($my_tasks)) {
           foreach($my_tasks as $task) { 		?>
-            <li>
-                <label> <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
+            
+                <label> Task id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Task name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Expect point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Owner email: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <button class="delete2"><a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>">Detail</a></button>
-            </li>
+                <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="delete2">Detail</button></a>
+                <br>
+            
         <?php }
           } ?>
       </ul>
+     </fieldset>
 
-
-      <h3>My assigned tasks</h3>
+     <br />
+     <br />
+    <fieldset>
+      <legend><h3>My assigned tasks</h3></legend>
       <ul id="incompleted-tasks">
       <?php 
         if (isset($assign_tasks)) {
           foreach($assign_tasks as $task) { 		?>
-            <li>
-                <label> <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
+           
+                <label> Task id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Task name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Expect point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
+                <label> Owner point: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <button class="delete2" href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>">Detail</button>
-            </li>
+                <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="delete2" >Detail</button> </a>
+                <br>
+           
         <?php }
           } ?>
       </ul>
-
+</fieldset>
   
 </body></html>
