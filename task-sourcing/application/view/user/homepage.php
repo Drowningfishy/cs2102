@@ -9,18 +9,17 @@
 		<div class="profilelogo">Here should be Logo</div>
 
 		<div class="function1"><a href="/task/search">Search for task</a></div>
-		<div class="function2">Published Tasks Management</div>
+		<div class="function2"><a href="/task/mytask">Published Tasks Management</a></div>
 
 		<div class="profile">
 			<div class = "username"><h1><?php if (Mini\Libs\Helper::logged_in()) {echo $_SESSION['login_user'] -> name; } else {echo "Nickname";};  ?></h1> </div>
-			<div class = "account">Account balance: xx points</div>
-			<div class = "task_no">No. of Your pending task: xx</div>
+			<div class = "account">Account balance: <?php echo $_SESSION['login_user'] -> bidding_point_balance;?> points</div>
 			<div class = "logout"><a href="<?php echo URL. 'user/logout'?>">Logout</a></div>
 
 		</div>
 
-		<div class="function3">CRUD entries(admin only)</div>
-		<div class="function4">Task Bidding management</div>
+		<div class="function3"><a href="<?php if (Mini\Libs\Helper::is_admin()) {echo URL. 'user/admin';} else {echo "#";}?>">User point management(admin only)</a></div>
+		<div class="function4"><a href="/task/mybid">Task Bidding management</a></div>
 	</div>
 
 	<div class="clear"></div>
