@@ -8,7 +8,7 @@
 	<div class ="float-box">
 		<div class="profilelogo">Here should be Logo</div>
 
-		<div class="function1">Search for task</div>
+		<div class="function1"><a href="/task/search">Search for task</a></div>
 		<div class="function2">Published Tasks Management</div>
 
 		<div class="profile">

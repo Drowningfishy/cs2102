@@ -36,6 +36,28 @@ class Task extends Model
         return ($query->fetchAll())[0];
     }
 
+    public function getTaskByUserEmail($owner_email)
+    {
+        $sql = "SELECT * FROM tasks_owned WHERE owner_email = :owner_email";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':owner_email' => $owner_email
+        );
+        $query->execute($parameters);
+        return ($query->fetchAll());
+    }
+
+    public function getAssignedTaskByUserEmail($assignee_email)
+    {
+        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description, t.owner_email FROM tasks_owned t, assign a WHERE t.task_id = a.task_id AND a.assignee_email = :assignee_email";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':assignee_email' => $assignee_email
+        );
+        $query->execute($parameters);
+        return ($query->fetchAll());
+    }
+
     
     public function getTaskByPartialName($task_name)
     {
