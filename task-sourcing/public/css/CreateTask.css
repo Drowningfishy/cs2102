@@ -14,6 +14,22 @@ body {
   clear:both;
 }
 
+.background{
+  padding-top:100px;
+  padding-bottom: 220px;
+  text-align: center;
+  width:100%;
+  height:65%;
+  background-image: url("createtask.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin:0;
+}
+.form {
+  font-family:verdana;
+}
+
+
 ul {
   margin: 0;
   padding: 0;
@@ -57,4 +73,6 @@ input[type="text"] {
 input[type="text"]:focus {
   color: #333;
 }
+
+
 

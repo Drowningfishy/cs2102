@@ -1,5 +1,7 @@
 <html><head>
 <title>CreateTask</title>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">   
+    <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/CreateTask.css">
 </head>
 
 
@@ -7,7 +9,7 @@
 <div><a href="/task/index"><button>return</button></a> </div>
 <div class="submit" align="center">
 <fieldset>
-<legend>Create Task(Admin only)</legend> 
+<legend>Create Task</legend> 
 <form action="/task/createTask" method="post">   
     <br>
     <br>

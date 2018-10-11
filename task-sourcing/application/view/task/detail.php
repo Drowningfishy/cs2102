@@ -44,7 +44,7 @@
         <label> <?php echo htmlspecialchars($bid->bidding_point, ENT_QUOTES, 'UTF-8');?> <label>
         <div class="clear"></div>
         <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email == $_SESSION['login_user'] -> email || (isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
-          <button class="delete2" href="<?php echo URL; ?>bid/delete/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>">Delete</button>
+          <button class="delete2"><a href="<?php echo URL; ?>bid/delete/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>">Delete</a></button>
           <button class="delete2" href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>">Pick</button>
         <?php } ?>
       </li>

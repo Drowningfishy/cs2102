@@ -1,0 +1,14 @@
+.background{
+	padding-top:100px;
+	padding-bottom: 220px;
+	text-align: center;
+	width:100%;
+	height:65%;
+	background-image: url("updatepage.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin:0;
+}
+.form {
+	font-family:verdana;
+}
