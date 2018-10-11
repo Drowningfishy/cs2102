@@ -37,8 +37,8 @@
           <div class="clear"></div>
           <div class="biddingPoint">Highest bidding point: bidding_point1</div>
            <div class="clear"></div>
-          <button class="delete">Discard</button>
-          <button class="assign">Assign</button>
+          <button class="delete"><a href="#">Withdraw</a></button>
+          <button class="assign"><a href ="#">Assign</a></button>
           <br>
         </li>
 

@@ -20,8 +20,8 @@
                 <label> <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
                 <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email == $_SESSION['login_user'] -> email || (isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
-                  <button class="delete2" href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id; ?>">Delete</button>
-                  <button class="delete3" href="<?php echo URL; ?>task/update/<?php echo $task -> task_id; ?>">Update</button>
+                  <button><a href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id; ?>">Delete</a></button>
+                  <button><a href="<?php echo URL; ?>task/update/<?php echo $task -> task_id; ?>">Update</a></button>
                 <?php } ?>
         </li>
       </ul>
