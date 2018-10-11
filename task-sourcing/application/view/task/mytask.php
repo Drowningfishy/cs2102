@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>SubmitTask.css">
   </head>
   <body>
-      
+      <a href="/task/new"> New Task </a>
       <h3>My created tasks</h3>
       <ul id="incompleted-tasks">
       <?php 

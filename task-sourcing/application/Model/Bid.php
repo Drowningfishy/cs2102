@@ -41,18 +41,40 @@ class Bid extends Model
     }
 
     public function createBid($task_id, $user_email, $value) {
-        $sql = "INSERT INTO bids (task_id, bidder_email, bidding_point) VALUES (:task_id, :bidder_email, :bidding_point)";
-        //echo $sql;
-        $query = $this->db->prepare($sql);
-        $parameters = array(
-            ':task_id' => (int)$task_id,
-            ':bidder_email' => $user_email,
-            ':bidding_point' => $value
-        );
-        try {
-            $query->execute($parameters);
-            return $sql;
-        } catch (PDOException $e) {
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $query = $this -> db -> prepare($sql);
+        $parameters = array(':email' => $user_email);
+        $query->execute($parameters);
+
+        $account = $query->fetch();
+
+        if ($account -> bidding_point_balance >= $value) {
+            $sql = "INSERT INTO bids (task_id, bidder_email, bidding_point) VALUES (:task_id, :bidder_email, :bidding_point)";
+            //echo $sql;
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ':task_id' => (int)$task_id,
+                ':bidder_email' => $user_email,
+                ':bidding_point' => $value
+            );
+            try {
+                $query->execute($parameters);
+            } catch (PDOException $e) {
+                return false;
+            }
+
+            $sql = "UPDATE users SET bidding_point_balance = :new_balance WHERE email = :email";
+            $query = $this -> db -> prepare($sql);
+            $parameters = array(
+                ':new_balance' => $account -> bidding_point_balance - $value,
+                ':email' => $account -> email);
+            try {
+                $query->execute($parameters);
+                return true;
+            } catch (PDOException $e) {
+                return false;
+            }
+        } else {
             return false;
         }
     }
