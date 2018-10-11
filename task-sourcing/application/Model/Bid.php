@@ -47,7 +47,7 @@ class Bid extends Model
         $query->execute($parameters);
 
         $account = $query->fetch();
-
+        var_dump($account);
         if ($account -> bidding_point_balance >= $value) {
             $sql = "INSERT INTO bids (task_id, bidder_email, bidding_point) VALUES (:task_id, :bidder_email, :bidding_point)";
             //echo $sql;
