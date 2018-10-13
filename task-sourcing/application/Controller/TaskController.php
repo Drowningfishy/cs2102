@@ -13,6 +13,7 @@ namespace Mini\Controller;
 
 use Mini\Libs\Helper;
 use Mini\Model\Task;
+use Mini\Model\User;
 
 class TaskController
 {
@@ -22,10 +23,18 @@ class TaskController
         $this->Task = new Task();
     }
     public function index() {
+        if(Helper::logged_in()){
         $tasks = $this -> Task -> getAllTasks();
         require APP . 'view/_templates/header.php';
         require APP . 'view/task/index.php';
         require APP . 'view/_templates/footer.php';
+        } else{
+             require APP . 'view/_templates/header.php';
+            //require APP . 'view/user/index.php';
+            require APP . 'view/user/login.php';
+            require APP . 'view/_templates/footer.php';
+
+        }
     }
 
     public function mytask() {
