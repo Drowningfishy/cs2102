@@ -19,7 +19,8 @@
             <div class="bartext">
                 <div class='logo'>Logo</div>
                 <div class="hyperlink"> 
-                    <a class="home" id="home" href="<?php echo URL; ?>">Home</a>
+                    <a class="startup page" id="startup page" href="<?php echo URL; ?>">SplashScreen</a>
+                    <a class="home" id="home" href="<?php echo URL; ?>user/index">Home</a>
                     <a class="alltasks" id="home" href="<?php echo URL; ?>task/index">All Tasks</a>
                     <a class="login" id="login" href="<?php echo URL; ?>user/index">Login</a>
                     <a class="logout" id="logout" href="<?php echo URL; ?>user/logout">Logout</a>
