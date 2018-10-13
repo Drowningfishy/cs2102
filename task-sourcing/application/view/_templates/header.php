@@ -21,7 +21,7 @@
                 <div class="hyperlink"> 
                     <a class="home" id="home" href="<?php echo URL; ?>">Home</a>
                     <a class="alltasks" id="home" href="<?php echo URL; ?>task/index">All Tasks</a>
-                    <a class="login" id="login" href="<?php echo URL; ?>user/index"><?php if (Mini\Libs\Helper::logged_in()) {echo "My";} else {echo "Login";}?></a>
+                    <a class="login" id="login" href="<?php echo URL; ?>user/index">Login</a>
                     <a class="logout" id="logout" href="<?php echo URL; ?>user/logout">Logout</a>
                 </div>
          </div>

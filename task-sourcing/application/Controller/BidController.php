@@ -65,8 +65,8 @@ class BidController
     }
     
     public function pick($task_id, $bidder_email) {
-        //var_dump($task_id);
-        //var_dump($bidder_email);
+        var_dump($task_id);
+        var_dump($bidder_email);
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
