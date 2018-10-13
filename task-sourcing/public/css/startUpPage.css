@@ -5,6 +5,7 @@ body{
 }
 
 .box-1{
+	margin-top:1000px;
 	position:absolute;
 	height:500px;
 	text-align: center;
