@@ -5,8 +5,8 @@ body{
 }
 
 .box-1{
-	margin-top:1000px;
-	position:absolute;
+	box-sizing:content-center;
+	margin-top:100px;
 	height:500px;
 	text-align: center;
 	width:100%;
