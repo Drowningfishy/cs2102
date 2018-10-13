@@ -8,17 +8,8 @@
 	<div class ="float-box">
 		<div class="profilelogo">Here should be Logo</div>
 
-		<div class="function1"><a href="/task/search">
-			<br>
-			<br>
-			<br>
-			<br>
-		Search for task</a></div>
-		<div class="function2"><a href="/task/mytask">
-		<br>
-			<br>
-			<br>
-			<br>Published Tasks Management</a></div>
+		<div class="function1"><a href="/task/search">Search for task</a></div>
+		<div class="function2"><a href="/task/mytask">Published Tasks Management</a></div>
 
 		<div class="profile">
 			<div class = "username"><h1><?php if (Mini\Libs\Helper::logged_in()) {echo $_SESSION['login_user'] -> name; } else {echo "Nickname";};  ?></h1> </div>
@@ -27,16 +18,8 @@
 
 		</div>
 
-		<div class="function3"><a href="<?php if (Mini\Libs\Helper::is_admin()) {echo URL. 'user/admin';} else {echo "#";}?>">
-		<br>
-			<br>
-			<br>
-			<br>User point management(admin only)</a></div>
-		<div class="function4"><a href="/task/mybid">
-			<br>
-			<br>
-			<br>
-			<br>Task Bidding management</a></div>
+		<div class="function3"><a href="<?php if (Mini\Libs\Helper::is_admin()) {echo URL. 'user/admin';} else {echo "#";}?>">User point management(admin only)</a></div>
+		<div class="function4"><a href="/task/mybid">Task Bidding management</a></div>
 	</div>
 
 	<div class="clear"></div>

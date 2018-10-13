@@ -22,7 +22,7 @@
 				<input type="password" name="password" id="password" class="validate" class="form-control" placeholder="Please enter your password">
 
 				<div style="margin-top:40px"></div>
-				<button type="submit" name="action" id="loginBtn" class="btn btn-lg btn-primary btn-block"><a href="/homepage">Log in</a> </button>
+				<button type="submit" name="action" id="loginBtn" class="btn btn-lg btn-primary btn-block"><a href="/homepage">Log in</a> </button> 
 				
 				<br>
 
