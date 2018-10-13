@@ -35,17 +35,7 @@
 		<div class = "decor">
 		</div>
 
-		<div class = "bar">
-			<div class="bartext">
-			 <div class='logo'>Logo</div>
-                <div class="hyperlink">
-                 	<a class="startup page" id="startup page" href="<?php echo URL; ?>">SplashScreen</a>
-                    <a class="home" id="home" href="<?php echo URL; ?>user/index">Home</a>
-                    <a class="login" id="login" href="<?php echo URL; ?>user/index">Login</a>
-                    <a class="logout" id="logout" href="<?php echo URL; ?>user/logout">Logout</a>
-                </div>
-            </div>
-		</div>
+		
 		
 
 		<div class="background">
