@@ -3,13 +3,19 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/startUpPage.css">
 	</head>
 	<body>
-
+        
 		<div class="box-1">
+			
 			<div style="margin-top:30px"></div>
+			<div class ="box-2">
 			<h1>TaskHub</h1>
 			<h6><p>TaskHub, 100% guaranteed quality of your life.</p></h6>
+		    </div>
+            
 			<h1><?php if (Mini\Libs\Helper::logged_in()) {echo "Welcome " . $_SESSION['login_user'] -> name;} else {echo "User not logged in.";};  ?></h1>
 			<h6><p>Love, DVA</p></h6>
+		  
+
 			<div class="example1">
 				<h3>Example1</h3>
 				<h6><p>Task Name: Buy KOI hot cocoa</p></h6>
@@ -29,11 +35,10 @@
 				<h6><p>Task Name: Good transporting</p></h6>
 				<h6>Avg. Reward: $10</h6>
 				<h6><p>Description: The goods is a fridge which weights 10kg. It should be transported from Kent Ridge to PGP before Oct 10th.</p></h6>
+		
 			</div>
 		</div>
 
-		<div class = "decor">
-		</div>
 
 		
 		
@@ -42,8 +47,27 @@
 		</div>
 
 		<div class="process">
-			<h2>How it works?</h2>
-			<p>Fill in the working process here.</p>
+		<fieldset>
+<legend><h1>How it works?</h1></legend>
+         <p>If you want some help...
+         	<br />
+         Open "startuppage" and publish your task!
+         </p>
+         <p>
+         If you want to get a job...
+         <br />
+		 View all tasks and bid for your willing task!
+		 </p>
+		 <p>
+		 If you want to get bidding points...
+		 <br />
+		 Earn points by publishing task or donating money for us!
+		 <br />
+		 <br />
+	     Hope you enjoy yourself(`・ω・´)!
+			</p>
+		</fieldset>
+		<div class = "flower"> </div>
 		</div>
 
 		<div style="margin-top:30px"></div>
