@@ -17,7 +17,7 @@
     <!-- navigation -->
     <div class = "bar">
             <div class="bartext">
-                <div class='logo'>Logo</div>
+                <div class='logo'>TaskHub</div>
                 <div class="hyperlink"> 
                     <a class="startup page" id="startup page" href="<?php echo URL; ?>">SplashScreen</a>
                     <a class="home" id="home" href="<?php echo URL; ?>user/index">Home</a>
