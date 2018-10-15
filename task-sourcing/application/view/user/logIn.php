@@ -12,13 +12,13 @@
 
 				<h1>L O G O</h1>
 				
-				<label for="email" class="email-only"> Email Address</label>
+				<label for="email" class="email-only"> Email Address</label><br/>
 				<input type="email" name="email" id="email" class="form-control" placeholder="Please enter your email address" class="validate"
                        value="<?php echo isset($email) ? $email : ''; ?>">
 				    
 				<br>
 
-				<label for="password" class="pwd-only"> Password</label>
+				<label for="password" class="pwd-only"> Password</label><br/>
 				<input type="password" name="password" id="password" class="validate" class="form-control" placeholder="Please enter your password">
 
 				<div style="margin-top:40px"></div>

@@ -6,7 +6,7 @@ body{
 .box-1{
 	box-sizing:content-center;
 	margin-top:100px;
-	height:550px;
+	height:475px;
 	text-align: center;
 	width:100%;
 	background-image: url("start.jpg");
@@ -33,10 +33,6 @@ body{
 	padding:0;
 }
 
-.box-2 {
-	background:rgba(253, 253, 253,0.6);
-	margin:0;
-}
 
 
 .bar{
@@ -85,10 +81,11 @@ body{
 
 
 .example1{
-	position: absolute;
+	position: relative;
+	float:left;
 	width:25%;
 	left:6.25%;
-	top:60%;
+	top:10%;
 	margin:0;
 	text-align:center;
 	height:270px;
@@ -96,10 +93,11 @@ body{
 }
 
 .example2{
-	position: absolute;
+	position: relative;
+	float:left;
 	width:25%;
-	left:37.5%;
-	top:60%;
+	top:10%;
+	left:12.5%;
 	margin:0;
 	text-align:center;
 	height:270px;
@@ -107,11 +105,12 @@ body{
 }
 
 .example3{
-	position: absolute;
+	float:right;
+	position: relative;
 	width:25%;
-	left:68.75%;
-	top:60%;
+	right:6.25%;
 	margin:0;
+	top:10%;
 	text-align:center;
 	height:270px;
 	background:rgba(0,204,238,0.4);
@@ -120,24 +119,19 @@ body{
 .background{
 	background-color:white;
 	width:100%;
-	padding-top:300px;
-	height:150%;
+	padding-top:220px;
 }
 
 .flower{
-    position: absolute;
-	width:100%;
-	height:8%;
-	top:95%;
-	background-size: 5% 100%;
-	opacity: 0.8;
-  background-image: url("flower.jpg");
+	height:70px;
+  background-image:url("flower.jpg");
+  background-size: 5% 100%;
+
 
 }
 
 .process{
 	font-family:Verdana;
-	padding-top:10px;
 	width:100%;
 	padding-bottom:220px;
 	text-align:center;

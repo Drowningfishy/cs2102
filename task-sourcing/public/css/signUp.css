@@ -73,12 +73,12 @@
 }
 
 .whole{
-	margin-top:2%;
 	background-image: url('signup.jpg');
 	background-repeat: no-repeat;
-	background-size: 100% 90%;
-	padding-top:10%;
-	height:100%;
+	background-size:100% 100%;
+	padding-top:12%;
+	padding-bottom:12%;
+	margin-top:35px;
 }
 
 #signUpBtn{
