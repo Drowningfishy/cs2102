@@ -4,8 +4,6 @@
 	</head>
 	<body>
 		<div class='whole'>
-
-			<div style="margin-top:30px"></div>
 			
 			<form class="form-signup" action="/user/registerUser" method="post">
 

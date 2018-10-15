@@ -1,6 +1,4 @@
-.form-signup{
-	padding-top:30px;
-	padding-bottom:190px;
+.form-signup{	
 	text-align: center;
 	width:40%;
 	margin:auto;
@@ -8,9 +6,11 @@
 	background-color:rgba(245,245,245,0.6);
 	border-radius: 5px;
 	vertical-align: middle;
-	padding:60px 10px;
+	padding:50px 10px;
 	
 }
+
+
 
 .form-signup h1{
 	margin:0;
@@ -73,11 +73,12 @@
 }
 
 .whole{
-	background-image: url('banner.jpg');
+	margin-top:2%;
+	background-image: url('signup.jpg');
 	background-repeat: no-repeat;
-	background-size: cover;
-	padding-bottom:140px;
-	padding-top:20px;
+	background-size: 100% 90%;
+	padding-top:10%;
+	height:100%;
 }
 
 #signUpBtn{
