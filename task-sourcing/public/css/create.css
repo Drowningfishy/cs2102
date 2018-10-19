@@ -1,0 +1,16 @@
+.background{
+  padding-top:100px;
+  padding-bottom: 300px;
+  background-image: url("create.jpg");
+  background-repeat: no-repeat;
+  background-size:50% 120%;
+  margin-top:35px;
+  font-family:verdana;
+}
+.background2{
+padding-top:20px;
+width:60%;
+margin:auto;
+text-align: center;
+
+}
