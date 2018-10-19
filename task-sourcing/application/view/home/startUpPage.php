@@ -7,8 +7,8 @@
 		<div class="box-1">
 			
 			<div style="margin-top:30px"></div>
-			<h1>TaskHub</h1>
-			<h6><p>TaskHub, 100% guaranteed quality of your life.</p></h6>
+			<h1>WhaleTasked</h1>
+			<h6><p>WhaleTasked, 100% guaranteed quality of your life.</p></h6>
             
 			<h1><?php if (Mini\Libs\Helper::logged_in()) {echo "Welcome " . $_SESSION['login_user'] -> name;} else {echo "User not logged in.";};  ?></h1>
 			<h6><p>Love, DVA</p></h6>
