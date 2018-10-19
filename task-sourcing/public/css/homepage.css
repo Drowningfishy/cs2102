@@ -1,5 +1,9 @@
 .float-box{
 margin-top:35px;
+width:100%;
+background-image:url("background4.jpg");
+height:750px;
+background-size:100% 100%;
 }
 
 
@@ -7,21 +11,20 @@ margin-top:35px;
 .profile{
 	height:750px;
 	text-align: center;
-	width:25%;
-	background-image:url("home.jpg");
-	background-size:100% 100%;
+	width:30%;
 	margin:0;
 	float:left;
 
 }
 
+
 .function1{
 	height:375px;
 	text-align: center;
-	width:37.5%;
-	background-image: url("background2.jpg");
-	background-size: cover;
+	width:35%;
+	background-image:url("balloon.png");
 	background-repeat: no-repeat;
+	background-size:100% 100%;
 	float:right;
 	margin:0;
 }
@@ -29,8 +32,10 @@ margin-top:35px;
 .function2{
 	height:375px;
 	text-align: center;
-	width:37.5%;
-	background-color:rgba(190,190,190,0.3);
+	width:35%;
+	background-image:url("balloon.png");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
 	float:right;
 	margin:0;
 }
@@ -38,8 +43,10 @@ margin-top:35px;
 .function3{
 	height:375px;
 	text-align: center;
-	width:37.5%;
-	background-color:rgba(190,190,190,0.3);
+	width:35%;
+	background-image:url("balloon.png");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
 	float:right;
 	margin:0;
 }
@@ -47,10 +54,10 @@ margin-top:35px;
 .function4{
 	height:375px;
 	text-align: center;
-	width:37.5%;
-	background-image: url("background2.jpg");
-	background-size: cover;
+	width:35%;
+	background-image:url("balloon.png");
 	background-repeat: no-repeat;
+	background-size:100% 100%;
 	float:right;
 	margin:0;
 }
