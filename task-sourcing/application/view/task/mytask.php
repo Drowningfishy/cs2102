@@ -10,6 +10,7 @@
   <body align = "center">
     <div class = "background">
     <div class = "tasks">
+      <a class="home" id="home" href="<?php echo URL; ?>task/new">Create Task</a>
       <fieldset>
       <legend><h3>My created tasks</h3></legend>
       <ul id="incompleted-tasks">
