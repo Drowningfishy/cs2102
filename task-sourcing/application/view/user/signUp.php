@@ -1,5 +1,5 @@
 <head>
-		<title>MyJournal SignUpPage</title>
+		<title>WhaleTasked SignUpPage</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/signUp.css">
 	</head>
 	<body>
@@ -7,7 +7,7 @@
 			
 			<form class="form-signup" action="/user/registerUser" method="post">
 
-				<h1>TaskHub</h1>
+				<h1>WhaleTasked</h1>
 
 				<label for="username" class="username-only"> Username</label>
 				<br/>

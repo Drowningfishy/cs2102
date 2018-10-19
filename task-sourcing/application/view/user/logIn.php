@@ -10,7 +10,7 @@
 			<div style="margin-top:10px"></div>
 			<form class="form-login" action="/user/login" method="post">
 
-				<h1>TaskHub</h1>
+				<h1>WhaleTasked</h1>
 				
 				<label for="email" class="email-only"> Email Address</label><br/>
 				<input type="email" name="email" id="email" class="form-control" placeholder="Please enter your email address" class="validate"
