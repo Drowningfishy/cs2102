@@ -6,17 +6,21 @@
   </head>
   <body>
       <div class = "background"> 
-<fieldset>
-<legend><h2>ALL TASKS</h2></legend> 
+        <div class = "background2">
+
+      <div align="center"><h1>ALL TASKS</h1></div>
       <ul id="incompleted-tasks">
       <?php 
         if (isset($tasks)) {
           foreach($tasks as $task) { 		?>
           <div class = "tasks">
-            <li>
-                <label>Task Id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
+            
+                <fieldset>
+                <legend>
+                <label><h3>Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </h3><label></legend>
+                  <br />
                 <div class="clear"></div>
-                <label>Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> <label>
+                <label>Task Id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
                 <label>Expect Point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
@@ -24,8 +28,11 @@
                 <div class="clear"></div>
                 <label>Task Owner: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-               <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"> <button class="delete2">Detail</button></a>
-            </li>
+                <br />
+               <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"> <button class = "detail">BID</button></a>
+               <br />
+             </fieldset>
+             <br />
 
         <?php }
           } ?>
