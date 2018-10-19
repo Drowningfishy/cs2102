@@ -15,14 +15,12 @@
 
 		</div>
 
-		<div class ="firstCol">
-			<div class="function2"><a href="/task/search">Search for task</a></div>
-			<div class="function1"><a href="/task/mytask">Published Tasks Management</a></div>
-		</div>
+			<div class="function2"><a href="/task/search"><div style="margin-top:300px"></div>Search for task</a></div>
+			<div class="function1"><a href="/task/mytask"><div style="margin-top:300px"></div>Published Tasks Management</a></div>
 		
 
-		<div class="function4"><a href="<?php if (Mini\Libs\Helper::is_admin()) {echo URL. 'user/admin';} else {echo "#";}?>">User point management(admin only)</a></div>
-		<div class="function3"><a href="/task/mybid">Task Bidding management</a></div>
+		<div class="function4"><div style="margin-top:300px"></div><a href="<?php if (Mini\Libs\Helper::is_admin()) {echo URL. 'user/admin';} else {echo "#";}?>">User point management(admin only)</a></div>
+		<div class="function3"><a href="/task/mybid"><div style="margin-top:300px"></div>Task Bidding management</a></div>
 	</div>
 
 	<div class="clear"></div>
