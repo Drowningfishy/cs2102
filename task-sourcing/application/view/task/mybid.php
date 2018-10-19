@@ -4,29 +4,29 @@
    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">   
     <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/mybidded.css">
   </head>
-  <body align ="center">
+  <body>
      <div class = "background">
-      <fieldset>
-      <legend><h3>My Bidded Tasks</h3></legend>
+      <div class = "background2">
+      <h1  align ="center">My Bidded Tasks</h1>
       <ul id="incompleted-tasks">
       <?php 
         if (isset($bided_tasks)) {
           foreach($bided_tasks as $task) { 		?>
-           
+                <fieldset>
+                <legend><label><h4>Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?></h4></legend>
+                <div class="clear"></div>
+                <br />
                 <label>Task Id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
-                <div class="clear"></div>
-                <label>Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> <label>
-                <div class="clear"></div>
-                <label>Expect Point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
                 <label>Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label>Task Owner: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> <label>
-                <div class="clear"></div>
                 <label>Your Bidding Point: <?php echo htmlspecialchars($task->my_bid, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="delete2">Detail</button></a>
-        
+                <br />
+                <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail">Details</button></a>
+                <br />
+              </fieldset>
+              <br />
         <?php }
           } ?>
       </ul>
