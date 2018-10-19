@@ -32,8 +32,9 @@
 			if (isset($tasks)) {
 				foreach($tasks as $task) { 		?>
 			<li>
-	<a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail"> View detail</button></a>
-			<label> <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </label>
+			<label> Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </label>
+			<div class="clear"></div>
+			<button class="detail"> <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>">View detail</a></button>
 			
 					</li>
 			<?php }
