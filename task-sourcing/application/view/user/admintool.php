@@ -1,29 +1,35 @@
 <html><head>
     <title>Admin tool</title>
-
+    <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/admintool.css">
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">   
   </head>
   <body>
-      
-      <h3>All Users</h3>
+      <div class = "background">
+      <div class = "background2">
+      <h2>All Users</h2>
       <ul id="incompleted-tasks">
       <?php 
         if (isset($users)) {
           foreach($users as $user) { 		?>
-            <li>
-                <label> <?php echo htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8');?> <label>
+               <fieldset>
+                <br />
+                <label>User Name: <?php echo htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8');?> <label>
+                <label>User Email: <?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
-                <label> <?php echo htmlspecialchars($user->bidding_point_balance, ENT_QUOTES, 'UTF-8');?> <label>
+                <label>User Points: <?php echo htmlspecialchars($user->bidding_point_balance, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
+                <br />
                 <form action = "/user/addValue/<?php echo $user -> email;?>" method="post">   
                     Value to Add*: <input type="text" name="point" placeholder = "Please enter bidding point to give" required="required">
                     <input type="submit" value="submit">
                 </form>
-            </li>
+                </fieldset>
+                <br />
         <?php }
-          } ?>
+          } 
+          ?>
+
           <!--
         <li>
           task2 and so on need to be changed by the task name
@@ -41,7 +47,8 @@
           <button class="delete3" href="#">Update</button>
         </li>
         -->
+        
       </ul>
-
+ 
   
 </body></html>

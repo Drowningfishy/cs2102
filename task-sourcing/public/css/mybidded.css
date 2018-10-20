@@ -2,10 +2,10 @@
   padding-top:100px;
   padding-bottom: 300px;
   width:100%;
-  height:150%;
-  background-image: url("mybidded.jpg");
+  height:100%;
+  background-image: url("start2.jpg");
   background-repeat: no-repeat;
-  background-size:100% 100%;
+  background-size:100% 80%;
   margin-top:35px;
   font-family:verdana;
 }
