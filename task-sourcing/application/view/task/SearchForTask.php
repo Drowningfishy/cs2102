@@ -25,18 +25,19 @@
 				</form>
 			</fieldset>
 		</from>
-</div>
 		<br>
-		<div class="searchResult" >Search Result</div>
+		<div class ="background2">
 		<?php 
 			if (isset($tasks)) {
 				foreach($tasks as $task) { 		?>
-			<li>
+		    <h3>
 			<label> Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </label>
 			<div class="clear"></div>
-			<button class="detail"> <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>">View detail</a></button>
-			
-					</li>
+			<br />
+			<a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail" style="color:#000000;margin-left:45%">Detail</button></a>
+			</h3>
+			<br />
+					
 			<?php }
 				} ?>
 			<!--
@@ -47,6 +48,6 @@
         </li>
 				-->
 			
-		</div>
+		
 	</body>
 </html>

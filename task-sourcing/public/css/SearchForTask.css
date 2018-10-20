@@ -70,25 +70,6 @@ li > label {
   padding-left:50px;
 }
 
-.detail {
-    display: inline-block;
-    padding: .3em .5em;
-    background-image: linear-gradient(#ddd, #bbb);
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3em;
-    box-shadow: 0 1px white inset;
-    text-align: center;
-    color:white;
-}
-
-.detail a{
-  text-decoration: none;
-}
-.detail:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
-    background: #bbb;
-}
 
 li > .description {
   font-size: 18px;
@@ -99,7 +80,7 @@ li > .description {
   text-align: center;
   width:100%;
   height:900px;
-  background-image: url("search.jpeg");
+  background-image: url("search.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin:0;
@@ -108,6 +89,38 @@ li > .description {
 
 .clear{
   clear:both;
+}
+.background2{
+  padding-top:20px;
+  padding-bottom: 30px;
+  width:80%;
+  margin:auto;
+  background-color:rgba(245,245,245,0.6);
+  
+}
+
+.detail {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background-color:rgba(245,245,245,0.8);
+  
+  font-family:verdana;
+  font-size: 10px;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.detail:hover {
+  color:white;
+  opacity: 0.8;
+}
+
+/* Clear floats */
+.detail:after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 
