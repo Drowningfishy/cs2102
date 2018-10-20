@@ -8,13 +8,12 @@
       
       
 <div class = "background">
+<div class = "background2" style="text-align:center">
 <fieldset>
 <legend><h2>UPDATE TASKS</h2></legend> 
-      
-      <div class = "form" align="center">
-      <br>
         
         <form action="/task/updateTask/<?php echo $task -> task_id;?>" method="post">  
+            <br />
             <br />
             Task ID*: <?php echo $task -> task_id; ?>
             <br>
@@ -22,17 +21,19 @@
             Task Name*: <input type="text" name="newTaskname" placeholder="Please enter new taskname" required="required">
             <br>
             <br>
-            Task Description: <textarea name="newDes" cols="40" rows="5" placeholder="Please enter new task description"></textarea>
+            Task Description: 
+            <br />
+            <textarea name="newDes" cols="80" rows="10" placeholder="Please enter new task description"></textarea>
             <br>
             <br>
             Lowest Required Point*: <input type="text" name="newPoint" placeholder="Please enter new point" required="required">
             <br>
             <br>
             <br />
-            <input type="reset" value="reset">
-            <input type="submit" value="update">
+            <input type="reset" value="reset" class="detail" style="margin-left: 37%">   
+            <input type="submit" value="update" class="detail" style="margin-left: 5%">
         </form>
-     </div>
- </div>
+</fieldset>
+
 
 </body></html>

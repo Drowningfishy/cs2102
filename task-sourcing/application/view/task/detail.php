@@ -16,7 +16,7 @@
           <fieldset>
           <legend><label>Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?></label></legend>
           <div class="clear"></div>
-          <label>Task Id:111 <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
+          <label>Task Id:<?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
                 <label>Expect Point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>

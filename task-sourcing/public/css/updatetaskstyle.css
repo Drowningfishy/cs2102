@@ -1,14 +1,45 @@
 .background{
-	padding-top:100px;
+	padding-top:150px;
 	padding-bottom: 220px;
-	text-align: center;
 	width:100%;
-	height:65%;
-	background-image: url("updatepage.jpg");
+	height:100%;
+	background-image: url("updatetask.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
-	margin:0;
+	background-size: 100% 110%;
+	margin-top:35px;
 }
-.form {
-	font-family:verdana;
+
+.background2{
+text-align: center;
+align-content:center;
+padding:30px 40px 20px 40px;
+width:60%;
+margin:auto;
+text-align: center;
+background-color:rgba(245,245,245,0.6);
+  
+}
+
+.detail {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background-color:rgba(245,245,245,0.6);
+  
+  font-family:verdana;
+  font-size: 10px;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.detail:hover {
+  color:white;
+  opacity: 0.8;
+}
+
+/* Clear floats */
+.detail:after {
+  content: "";
+  clear: both;
+  display: table;
 }
