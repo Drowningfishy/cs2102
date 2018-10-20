@@ -48,7 +48,7 @@
 <legend><h1>How it works?</h1></legend>
          <p>If you want some help...
          	<br />
-         Open "startuppage" and publish your task!
+         Open "home" and publish your task!
          </p>
          <p>
          If you want to get a job...
