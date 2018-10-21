@@ -85,8 +85,7 @@ class UserController
         if (Helper::is_admin()) {
             $valueToAdd = $_POST['point'];
             if (Helper::is_admin()) {
-                $account = $this -> User -> getUserByEmail($user_email);
-                if ($account && $this -> User -> addValue($account, $valueToAdd)) {
+                if ($this -> User -> adminAddValue($user_email, $valueToAdd)) {
                     header('Location:' . URL. 'user/admin');
                 } else {
                     header('Location:' . URL. 'user/admin');

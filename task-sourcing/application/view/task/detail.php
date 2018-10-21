@@ -44,9 +44,9 @@
     <input type="submit" value="submit">
 </form>
 <br />
-
 <?php } ?>
- 
+
+
 <ul id="incompleted-tasks">
 <?php if (isset($bids) && $bids != null) {
     foreach($bids as $bid) { ?>

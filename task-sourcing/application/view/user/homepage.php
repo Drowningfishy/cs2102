@@ -10,7 +10,10 @@
 		<div class="profile">
 			<div style="margin-top:130px"></div>
 			<div class = "username"><h1 style="color:#000000"><?php if (Mini\Libs\Helper::logged_in()) {echo $_SESSION['login_user'] -> name; } else {echo "Nickname";};  ?></h1> </div>
-			<div class = "account">Account balance: <?php echo $_SESSION['login_user'] -> bidding_point_balance;?> points</div>
+			<div class = "account">Account balance: 
+				<?php echo(Mini\Libs\Helper::getAccountBalance($_SESSION['login_user'] -> email));
+				?> 
+			points</div>
 			<div class = "logout"><a href="<?php echo URL. 'user/logout'?>" style = "text-decoration:none;color:#000000" >Logout</a></div>
 
 		</div>

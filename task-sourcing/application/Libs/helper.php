@@ -1,6 +1,7 @@
 <?php
 
 namespace Mini\Libs;
+use Mini\Model\User;
 
 class Helper
 {
@@ -52,6 +53,14 @@ class Helper
         $raw_sql = preg_replace($keys, $values, $raw_sql, 1, $count);
 
         return $raw_sql;
+    }
+
+    static public function getAccountBalance($email){
+        try{
+            $user = new User();
+            $balance = $user -> getAccountBalanceByEmail($email);
+            return $balance -> bidding_point_balance;
+        }catch(Exception $e){};
     }
 
     static public function logged_in() {

@@ -13,11 +13,11 @@
           foreach($users as $user) { 		?>
                <fieldset>
                 <br />
-                <label>User Name: <?php echo htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8');?> <label>
+                <label>User Name: <?php echo htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
-                <label>User Email: <?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8');?> <label>
+                <label>User Email: <?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
-                <label>User Points: <?php echo htmlspecialchars($user->bidding_point_balance, ENT_QUOTES, 'UTF-8');?> <label>
+                <label>User Points: <?php echo htmlspecialchars($user->bidding_point_balance, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
                 <br />
                 <form action = "/user/addValue/<?php echo $user -> email;?>" method="post">   
@@ -49,6 +49,8 @@
         -->
         
       </ul>
+    </div>
+  </div>
  
   
 </body></html>
