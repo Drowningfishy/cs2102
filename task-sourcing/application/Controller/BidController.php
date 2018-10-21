@@ -14,6 +14,7 @@ namespace Mini\Controller;
 use Mini\Libs\Helper;
 use Mini\Model\Bid;
 use Mini\Model\Task;
+use Mini\Model\User;
 
 class BidController
 {
@@ -68,6 +69,8 @@ class BidController
         var_dump($task_id);
         var_dump($bidder_email);
         if (isset($task_id)) {
+            $owner_email = $this -> Task -> getOwnerById($task_id);
+            $owner_account = $this -> User -> getUserByEmail($owner_email);
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if ($this -> Bid -> assignWinner($task_id, $bidder_email)) {

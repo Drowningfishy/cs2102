@@ -58,7 +58,7 @@ class Bid extends Model
     }
 
     public function updateBid($task_id, $user_email, $value) {
-        $sql = "UPDATE bids SET bidding_point = :bidding_point WHERE task_id = :task_id, bidder_email = :bidder_email";
+        $sql = "UPDATE bids SET bidding_point = :bidding_point WHERE task_id = :task_id and bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_id' => (int)$task_id,
@@ -74,7 +74,7 @@ class Bid extends Model
     }
 
     public function deleteBid($task_id, $bidder_email) {
-        $sql = "DELETE FROM bids WHERE task_id = :task_id, bidder_email = :bidder_email";
+        $sql = "DELETE FROM bids WHERE task_id = :task_id and bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_id' =>(int)$task_id,
@@ -100,6 +100,6 @@ class Bid extends Model
             return true;
         } catch (PDOException $e) {
             return false;
-        }
+        } 
     }
 }

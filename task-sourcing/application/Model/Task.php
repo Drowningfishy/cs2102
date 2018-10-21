@@ -36,6 +36,15 @@ class Task extends Model
         return ($query->fetchAll())[0];
     }
 
+    public function getOwnerById($task_id){
+        $sql = "SELECT owner_email FROM tasks_owned WHERE task_id = :task_id";
+        $query = $this ->db->prepare($sql);
+        $parameters = array(
+            ':task_id'=>(int)$task_id);
+        $query->execute($parameters);
+        return $query->fetch()->owner_email;
+    }
+
     public function getTaskByUserEmail($owner_email)
     {
         $sql = "SELECT * FROM tasks_owned WHERE owner_email = :owner_email";
