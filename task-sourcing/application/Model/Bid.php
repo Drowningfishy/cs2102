@@ -73,12 +73,12 @@ class Bid extends Model
         }
     }
 
-    public function deleteBid($task_id, $user_email) {
+    public function deleteBid($task_id, $bidder_email) {
         $sql = "DELETE FROM bids WHERE task_id = :task_id, bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
         $parameters = array(
-            ':task_id' => (int)$task_id,
-            ':bidder_email' => $user_email,
+            ':task_id' =>(int)$task_id,
+            ':bidder_email' => $bidder_email
         );
         try {
             $query->execute($parameters);

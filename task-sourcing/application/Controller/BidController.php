@@ -56,9 +56,9 @@ class BidController
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if ($this -> Bid -> deleteBid($task_id, $bidder_email)) {
-                    header("Location:" . URL. "task/detail/". $task_id);
+                   // header("Location:" . URL. "task/detail/". $task_id);
                 } else {
-                    header("Location:" . URL. "task/detail/". $task_id);
+                    //header("Location:" . URL. "task/detail/". $task_id);
                 }
             }
         }

@@ -19,7 +19,7 @@
     <br />
     Task Description: 
     <br />
-    <textarea cols="80" rows="10" placeholder = "Please enter task description"></textarea >
+    <textarea name="taskDes" cols="80" rows="10" placeholder = "Please enter task description"></textarea >
     <br />
     <br />
     Expect Point*: <input type="text" name="point" placeholder = "Please enter expect point" required="required">
