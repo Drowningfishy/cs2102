@@ -57,7 +57,7 @@
         <div class="clear"></div>
         <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email == $_SESSION['login_user'] -> email || (isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
           <a href="<?php echo URL; ?>bid/delete/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>"><button class="delete2">Delete</button></a>
-          <a href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>"><button class="delete2">Pick</button></a>
+          <a href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email. '/'. $bid -> bidding_point;?>"><button class="delete2">Pick</button></a>
           
         <?php } ?>
         

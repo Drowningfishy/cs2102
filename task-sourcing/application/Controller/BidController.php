@@ -23,6 +23,7 @@ class BidController
     {
         $this->Bid = new Bid();
         $this->Task = new Task();
+        $this->User = new User();
     }
 
     //This method is for post only
@@ -65,19 +66,24 @@ class BidController
         }
     }
     
-    public function pick($task_id, $bidder_email) {
+    public function pick($task_id, $bidder_email,$bidding_point) {
         var_dump($task_id);
         var_dump($bidder_email);
         if (isset($task_id)) {
-            $owner_email = $this -> Task -> getOwnerById($task_id);
-            $owner_account = $this -> User -> getUserByEmail($owner_email);
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
-                if ($this -> Bid -> assignWinner($task_id, $bidder_email)) {
-                    header("Location:" . URL. "task/detail/". $task_id);
-                } else {
-                    header("Location:" . URL. "task/detail/". $task_id);
+                if($this -> Bid -> assignWinner($task_id, $bidder_email)){
+                    
+
+                    $owner_account = $this -> User -> getUserByEmail($task -> owner_email);
+                    $this -> User -> addValue($owner_account,$bidding_point);
+
+                    $bidder_account = $this -> User -> getUserByEmail($bidder_email);
+                    $this -> User -> deductValue($bidder_account,$bidding_point);
+
                 }
+                header("Location:" . URL. "task/detail/". $task_id);
+                
             }
         }
     }
