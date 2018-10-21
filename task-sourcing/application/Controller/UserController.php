@@ -81,12 +81,23 @@ class UserController
         }
     }
 
+    public function RetrieveAdmin() {
+        if (Helper::is_admin()) {
+            $users = $this -> User -> getUserByNameDesc();
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/user/admintool.php';
+            require APP . 'view/_templates/footer.php';
+        } else {
+            header('Location:' . URL);
+        }
+    }
+
     public function addValue($user_email) {
         if (Helper::is_admin()) {
             $valueToAdd = $_POST['point'];
             if (Helper::is_admin()) {
                 if ($this -> User -> adminAddValue($user_email, $valueToAdd)) {
-                    header('Location:' . URL. 'user/admin');
+                    header('Location:' . URL. 'user/RetrieveAdmin');
                 } else {
                     header('Location:' . URL. 'user/admin');
                 }

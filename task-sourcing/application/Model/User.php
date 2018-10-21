@@ -39,6 +39,14 @@ class User extends Model
         return $query->fetch();
     }
 
+    public function getUserByNameDesc() {
+        $sql = "SELECT name, email, password, bidding_point_balance, is_admin FROM users Order by name DESC";
+        $query = $this -> db -> prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     public function getAccountBalanceByEmail($email){
         $sql = "SELECT bidding_point_balance FROM users WHERE email = :email";
         $query = $this -> db -> prepare($sql);
