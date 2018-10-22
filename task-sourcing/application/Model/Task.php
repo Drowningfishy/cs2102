@@ -36,6 +36,15 @@ class Task extends Model
         return ($query->fetchAll())[0];
     }
 
+    public function getTaskByExpectpointDesc(){
+        $sql = "SELECT * FROM tasks_owned order by expect_point Desc ";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+
     public function getOwnerById($task_id){
         $sql = "SELECT owner_email FROM tasks_owned WHERE task_id = :task_id";
         $query = $this ->db->prepare($sql);

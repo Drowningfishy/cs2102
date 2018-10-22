@@ -99,7 +99,7 @@ class UserController
                 if ($this -> User -> adminAddValue($user_email, $valueToAdd)) {
                     header('Location:' . URL. 'user/RetrieveAdmin');
                 } else {
-                    header('Location:' . URL. 'user/admin');
+                    header('Location:' . URL. 'user/RetrieveAdmin');
                 }
             }
         } else {
