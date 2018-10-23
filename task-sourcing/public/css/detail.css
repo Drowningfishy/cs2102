@@ -19,6 +19,11 @@
   
   
 }
+
+a{
+  text-decoration: none;
+  color:black;
+}
 .detail {
   float: left;
   width: 10%;
@@ -36,6 +41,51 @@
 
 /* Clear floats */
 .detail:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.detail2 {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background-color:rgba(245,245,245,0.5); 
+  font-family:verdana;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.detail2:hover {
+  color:white;
+  opacity: 0.5;
+}
+
+/* Clear floats */
+.detail2:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.detail3 {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background-color:rgba(245,245,245,0); 
+  opacity:0;
+  font-family:verdana;
+  font-size: 10px;
+}
+
+.detail3:hover {
+  color:white;
+  opacity: 0.5；
+}
+
+/* Clear floats */
+.detail3:after {
   content: "";
   clear: both;
   display: table;

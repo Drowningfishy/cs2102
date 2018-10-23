@@ -26,8 +26,13 @@
                 <div class="clear"></div>
                 <br />
                 <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email == $_SESSION['login_user'] -> email || (isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
-                  <a href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id; ?>"><input type = "button" value="Delete" class ="detail" style="margin-left:40%"></a>
-                  <a href="<?php echo URL; ?>task/update/<?php echo $task -> task_id; ?>"><input type = "button" value="Update" class = "detail" style = "margin-left:3%"></a>
+                  <div class="clear"></div>
+                  <div class = "button">
+                    <input type ="button" value = "Delete" class ="detail3">
+                    <a href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id; ?>"><input type = "button" value="Delete" class ="detail"></a>
+                    <a href="<?php echo URL; ?>task/update/<?php echo $task -> task_id; ?>"><input type = "button" value="Update" class = "detail2"></a>
+                  </div>
+                  <div class = "clear"></div>
                 <?php } ?>
           
         
