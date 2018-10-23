@@ -29,7 +29,7 @@
                   <div class="clear"></div>
                   <div class = "button">
                     <input type ="button" value = "Delete" class ="detail3">
-                    <a href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id; ?>"><input type = "button" value="Delete" class ="detail"></a>
+                    <a href="<?php echo URL; ?>task/delete/<?php echo $task -> task_id; ?>"><input type = "button" value="Delete" class ="detail" style="margin-left:30%"></a>
                     <a href="<?php echo URL; ?>task/update/<?php echo $task -> task_id; ?>"><input type = "button" value="Update" class = "detail2"></a>
                   </div>
                   <div class = "clear"></div>
@@ -63,8 +63,9 @@
         <div class="clear"></div>
         <br />
         <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email == $_SESSION['login_user'] -> email || (isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
-          <a href="<?php echo URL; ?>bid/delete/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>"><button class="detail" style="margin-left:40%">Delete</button></a>
-          <a href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email. '/'. $bid -> bidding_point;?>"><button class="detail" style="margin-left:3%">Pick</button></a>
+          <input type ="button" value = "Delete" class ="detail3">
+          <a href="<?php echo URL; ?>bid/delete/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>"><button class="detail" style="margin-left:30%">Delete</button></a>
+          <a href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email. '/'. $bid -> bidding_point;?>"><button class="detail">Pick</button></a>
           
         <?php } ?>
         
