@@ -20,17 +20,12 @@
           foreach($my_tasks as $task) { 		?>
               <fieldset>
                 <legend>
-                <label> <h3>Task name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </h3></label>       
-                </legend>
+                <label> <h3>Task name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </h3></label>   </legend>
                 <div class="clear"></div>
                 <br />
-                <label> Task id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> </label>
+                <label> Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
                 <label> Expect point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> </label>
-                <div class="clear"></div>
-                <label> Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
-                <div class="clear"></div>
-                <label> Owner email: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
                 <br />
                 <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail">Detail</button></a>
@@ -56,14 +51,12 @@
                  <label><h3> Task name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?></h3> </label>
                 <div class="clear"></div>
                </legend>
-                <label>Task id: <?php echo htmlspecialchars($task->task_id, ENT_QUOTES, 'UTF-8');?> </label>
-                <div class="clear"></div>
-                <label> Expect point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> </label>
-                <div class="clear"></div>
-                <label> Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
+               <br />
+                <label> Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
                 <label> Owner point: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
+                <br />
                 <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail" >Detail</button> </a>
                 <br>
                 </fieldset>
