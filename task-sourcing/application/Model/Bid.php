@@ -41,7 +41,7 @@ class Bid extends Model
     }
 
     public function havebidded($task_id,$user_email){
-        $sql = "SELECT COUNT(*) FROM bids WHERE bidder_email = :bidder_email AND task_id = :task_id GROUP BY bidder_email AND task_id";
+        $sql = "SELECT * FROM bids WHERE bidder_email = :bidder_email AND task_id = :task_id";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_id' => (int)$task_id,
@@ -49,9 +49,9 @@ class Bid extends Model
         );
         try {
             $query->execute($parameters);
-            return true;
+            return $query->fetchAll();
         } catch (PDOException $e) {
-            return false;
+            return null;
         }
 
     }
