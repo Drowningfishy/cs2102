@@ -13,6 +13,8 @@ use PDOException;
 
 class Task extends Model
 {
+
+
     /**
      * Get all tasks from database
      */

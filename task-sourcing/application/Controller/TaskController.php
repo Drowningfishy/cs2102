@@ -28,6 +28,7 @@ class TaskController
         require APP . 'view/_templates/header.php';
         require APP . 'view/task/index.php';
         require APP . 'view/_templates/footer.php';
+
         } else{
              require APP . 'view/_templates/header.php';
             //require APP . 'view/user/index.php';
@@ -36,6 +37,14 @@ class TaskController
 
         }
     }
+     public function winner($task_id) {
+        $winner_email = $this -> Task -> getWinnerEmail($task_id);
+        return $winner_email;
+
+    }
+
+
+
 
     public function mytask() {
         if (Helper::logged_in()) {
@@ -59,6 +68,7 @@ class TaskController
             header("Location:" . URL. "user/index");
         }
     }
+
 
     public function detail($task_id) {
         //var_dump($task_id);
@@ -113,6 +123,8 @@ class TaskController
             header("Location:" . URL. "task/index");
         }
     }
+
+
 
     //This method is for post only
     public function updateTask($task_id) {
