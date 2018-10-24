@@ -69,7 +69,9 @@
         <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email == $_SESSION['login_user'] -> email || (isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
           <input type ="button" value = "Delete" class ="detail3">
           <a href="<?php echo URL; ?>bid/delete/<?php echo $bid -> task_id. '/'. $bid -> bidder_email;?>"><button class="detail" style="margin-left:30%">Delete</button></a>
+          <?php if($bid->bidding_point <= (Mini\Libs\Helper::getAccountBalance($_SESSION['login_user'] -> email))){?>
           <a href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email. '/'. $bid -> bidding_point;?>"><button class="detail">Pick</button></a>
+         <?php } ?> 
          <?php } ?> 
         <?php } ?>
         
