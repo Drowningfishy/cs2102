@@ -40,6 +40,22 @@ class Bid extends Model
         }
     }
 
+    public function havebidded($task_id,$user_email){
+        $sql = "SELECT COUNT(*) FROM bids WHERE bidder_email = :bidder_email AND task_id = :task_id GROUP BY bidder_email AND task_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id' => (int)$task_id,
+            ':bidder_email' => $user_email
+        );
+        try {
+            $query->execute($parameters);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+
+    }
+
     public function createBid($task_id, $user_email, $value) {
         $sql = "INSERT INTO bids (task_id, bidder_email, bidding_point) VALUES (:task_id, :bidder_email, :bidding_point)";
         //echo $sql;

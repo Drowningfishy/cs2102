@@ -32,11 +32,20 @@ class BidController
         $value = $_POST['point'];
         $task = $this -> Task -> getTaskById($task_id);
         if ($task && Helper::logged_in() && !($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
+            if (!$this -> Bid -> havebidded($task_id, $_SESSION['login_user'] -> email)) {
             if ($this -> Bid -> createBid($task_id, $_SESSION['login_user'] -> email, $value)) {
                 header("Location:" . URL. "task/detail/". $task_id);
             } else {
                 header("Location:" . URL. "task/detail/". $task_id);
             }
+        } else {
+            if ($this -> Bid -> updateBid($task_id, $_SESSION['login_user'] -> email, $value)) {
+                header("Location:" . URL. "task/detail/". $task_id);
+            } else {
+                header("Location:" . URL. "task/detail/". $task_id);
+            }
+
+        }
         }
     }
 
