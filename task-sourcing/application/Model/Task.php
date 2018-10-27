@@ -102,9 +102,9 @@ class Task extends Model
 
     public function getTaskByTaskType($task_type)
     {
-        $sql = "SELECT * FROM tasks_owned WHERE task_type LIKE :task_type" ;
+        $sql = "SELECT * FROM tasks_owned WHERE task_type = :task_type" ;
         $query = $this->db->prepare($sql);
-        $parameters = array(':task_type' => '%'.$task_type.'%');
+        $parameters = array(':task_type' => $task_type);
         $query->execute($parameters);
 
         return $query->fetchAll();
@@ -177,7 +177,17 @@ class Task extends Model
             return false;
         }
     }
+    
 
+    public function getTaskByType($task_type) {
+        $sql = "SELECT * FROM tasks_owned where task_type = :task_type";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_type' =>  $task_type
+        );
+        $query->execute();
+        return $query->fetchAll();
+    }
     
 
     public function getWinnerEmail($task_id) {
