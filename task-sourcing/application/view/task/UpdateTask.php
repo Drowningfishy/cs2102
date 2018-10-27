@@ -26,15 +26,9 @@
             <textarea name="newDes" cols="80" rows="10" placeholder="Please enter new task description"></textarea>
             <br>
             <br>
-            Task type*:
-            <select>
-            <option value="more than 1 hour">more than 1 hour</option>
-            <option value="less than 1 hour more than 30 minutes">less than 1 hour more than 30 minutes</option>
-            <option value="less than 30 minutes more than 10 minutes">less than 30 minutes more than 10 minutes</option>
-            <option value="less than 10 minutes">less than 10 minutes</option>
-            </select>
-            <br />
-            <br />
+            Task type*: <?php echo $task -> task_type;?>
+            <br>
+            <br>
             Lowest Required Point*: <input type="text" name="newPoint" placeholder="Please enter new point" required="required">
             <br>
             <br>

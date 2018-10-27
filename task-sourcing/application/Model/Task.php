@@ -126,8 +126,8 @@ class Task extends Model
     }
 
     //TODO: Fill into correct sql and correct parameters.
-    public function createTask($name, $description, $point,$task_type, $owner_email) {
-        $sql = "INSERT INTO tasks_owned (task_name, expect_point, description, task_type, owner_email) VALUES (:task_name, :expect_point, :description,:task_type,:owner_email)";
+    public function createTask($name, $description, $task_type, $point,$owner_email) {
+        $sql = "INSERT INTO tasks_owned (task_name, expect_point, description, owner_email, task_type) VALUES (:task_name, :expect_point, :description,:owner_email,:task_type)";
         //echo $sql;
         $query = $this->db->prepare($sql);
         $parameters = array(
@@ -147,13 +147,12 @@ class Task extends Model
 
     //TODO: Fill into correct sql and correct parameters.
     public function updateTask($task_id, $name, $description,$task_type ,$point) {
-        $sql = "UPDATE tasks_owned SET task_name = :task_name, expect_point = :expect_point, description = :description,task_type = task_type,WHERE task_id = :task_id";
+        $sql = "UPDATE tasks_owned SET task_name = :task_name, expect_point = :expect_point, description = :description,WHERE task_id = :task_id";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_name' => $name,
             ':expect_point' => (int)$point,
             ':description' => $description,
-            ':task_type' => $task_type,
             ':task_id' =>  (int)$task_id
         );
         try {

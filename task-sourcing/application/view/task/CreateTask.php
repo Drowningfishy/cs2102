@@ -23,11 +23,14 @@
     <br />
     <br />
     Task type*:
-    <select>
-    <option value="more than 1 hour">more than 1 hour</option>
-    <option value="less than 1 hour more than 30 minutes">less than 1 hour more than 30 minutes</option>
-    <option value="less than 30 minutes more than 10 minutes">less than 30 minutes more than 10 minutes</option>
-    <option value="less than 10 minutes">less than 10 minutes</option>
+    <select name = "taskType">
+    <option value="Chores">Chores</option>
+    <option value="Heavy Lifting">Heavy Lifting</option>
+    <option value="Moving & Packing">Moving & Packing</option>
+    <option value="Home improvement">Home improvement</option>
+    <option value="Delivery">Delivery</option>
+    <option value="Mounting & Installation">Mounting & Installation</option>
+    <option value="Others">Others</option>
     </select>
 
     <br />

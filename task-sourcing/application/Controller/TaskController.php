@@ -136,9 +136,8 @@ class TaskController
                 $id = $task_id;
                 $name = $_POST['newTaskname'];
                 $description = $_POST['newDes'];
-                $type=$_POST['taskType'];
                 $point = $_POST['newPoint'];
-                if ($this -> Task -> updateTask($id, $name, $description,$type, $point)) {
+                if ($this -> Task -> updateTask($id, $name, $description,$point)) {
                     header("Location:" . URL. "task/detail/". $id);
                 } else {
                     header("Location:" . URL. "task/detail/". $id);
