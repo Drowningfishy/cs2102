@@ -24,9 +24,7 @@ class TaskController
     }
     public function index() {
         if(Helper::logged_in()){
-        $type=$_POST['taskType'];
-        if (strstr($type,'All Tasks')){$tasks = $this -> Task -> getAllTasks();}
-        else {$tasks = $this -> Task -> getTaskByTaskType($type);}
+        $tasks = $this -> Task -> getAllTasks();
         require APP . 'view/_templates/header.php';
         require APP . 'view/task/index.php';
         require APP . 'view/_templates/footer.php';
@@ -44,6 +42,9 @@ class TaskController
         return $winner_email;
 
     }
+
+
+
 
     public function mytask() {
         if (Helper::logged_in()) {
