@@ -25,8 +25,11 @@
                 <br />
                 <label> Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
+                <br />
                 <label> Expect point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
+                <br />
+                <label> Task type: <?php echo htmlspecialchars($task->task_type, ENT_QUOTES, 'UTF-8');?> </label>
                 <br />
                 <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail">Detail</button></a>
                 <br>

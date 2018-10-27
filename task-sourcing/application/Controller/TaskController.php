@@ -117,7 +117,8 @@ class TaskController
         $name = $_POST['taskname'];
         $point = $_POST['point'];
         $description = $_POST['taskDes'];
-        if (Helper::logged_in() && $this -> Task -> createTask($name, $description, $point, $_SESSION['login_user'] -> email)) {
+        $type=$_POST['taskType'];
+        if (Helper::logged_in() && $this -> Task -> createTask($name, $description,$type, $point, $_SESSION['login_user'] -> email)) {
             header("Location:" . URL. "task/index");
         } else {
             header("Location:" . URL. "task/index");
@@ -135,8 +136,9 @@ class TaskController
                 $id = $task_id;
                 $name = $_POST['newTaskname'];
                 $description = $_POST['newDes'];
+                $type=$_POST['taskType'];
                 $point = $_POST['newPoint'];
-                if ($this -> Task -> updateTask($id, $name, $description, $point)) {
+                if ($this -> Task -> updateTask($id, $name, $description,$type, $point)) {
                     header("Location:" . URL. "task/detail/". $id);
                 } else {
                     header("Location:" . URL. "task/detail/". $id);

@@ -18,6 +18,10 @@
                 <br />
                 <label>Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
+                <br />
+                <label>Task Type: <?php echo htmlspecialchars($task->task_type, ENT_QUOTES, 'UTF-8');?> <label>
+                <div class="clear"></div>
+                <br /> 
                 <label>Your Bidding Point: <?php echo htmlspecialchars($task->my_bid, ENT_QUOTES, 'UTF-8');?> <label>
                 <div class="clear"></div>
                 <br />

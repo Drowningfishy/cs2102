@@ -24,6 +24,8 @@
                 <div class="clear"></div>
                 <label>Expect Point: <?php echo htmlspecialchars($task->expect_point, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
+                <label>Task Type: <?php echo htmlspecialchars($task->task_type, ENT_QUOTES, 'UTF-8');?> </label>
+                <div class="clear"></div>
                 <label>Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
                 <br />

@@ -17,6 +17,15 @@
             Task Description: <textarea cols="40" rows="5" name = "description" placeholder = "Please enter task description"></textarea >
             <br />
             <br />
+            Task type*:
+            <select>
+            <option value="more than 1 hour">more than 1 hour</option>
+            <option value="less than 1 hour more than 30 minutes">less than 1 hour more than 30 minutes</option>
+            <option value="less than 30 minutes more than 10 minutes">less than 30 minutes more than 10 minutes</option>
+            <option value="less than 10 minutes">less than 10 minutes</option>
+            <br />
+            <br />
+            </select>
             Expect Point*: <input type="text" name="point" placeholder = "Please enter expect point" required="required">
 
             <br />
