@@ -100,6 +100,16 @@ class Task extends Model
         return $query->fetchAll();
     }
 
+    public function getTaskAndRelationByAdvancedSearch($query)
+    {
+        $sql = "SELECT * FROM advancedSearch(:query)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':query' => $query);
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+
     public function getTaskByTaskType($task_type)
     {
         $sql = "SELECT * FROM tasks_owned WHERE task_type = :task_type" ;

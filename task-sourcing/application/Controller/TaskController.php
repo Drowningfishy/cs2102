@@ -152,7 +152,7 @@ class TaskController
 
     public function searchTask() {
         $name = $_POST['search'];
-        $tasks = $this -> Task -> getTaskByPartialName($name);
+        $tasks = $this -> Task -> getTaskAndRelationByAdvancedSearch($name);
         //var_dump($tasks);
         require APP . 'view/_templates/header.php';
         require APP . 'view/task/SearchForTask.php';
