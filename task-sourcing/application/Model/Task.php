@@ -100,11 +100,11 @@ class Task extends Model
         return $query->fetchAll();
     }
 
-    public function getTaskAndRelationByAdvancedSearch($query)
+    public function getTaskAndRelationByAdvancedSearch($query_string)
     {
         $sql = "SELECT * FROM advancedSearch(:query)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':query' => $query);
+        $parameters = array(':query' => $query_string);
         $query->execute($parameters);
 
         return $query->fetchAll();
