@@ -30,14 +30,19 @@
 		<?php 
 			if (isset($tasks)) {
 				foreach($tasks as $task) { 		?>
-		    <h3>
+		    <fieldset>
+		    <legend><label> <?php echo $task->relation ?></label><</legend>
+			<div class = "clear"> </div>
+			<br />
+			<h3>
 			<label> Task Name: <?php echo htmlspecialchars($task->task_name, ENT_QUOTES, 'UTF-8');?> </label>
 			<div class="clear"></div>
-			<br />
-			<a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail" style="color:#000000;margin-left:45%">Detail</button></a>
 			</h3>
+			<a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail" style="color:#000000;margin-left:45%">Detail</button></a>
 			<br />
-					
+			<br />
+			</fieldset>	
+			<br />
 			<?php }
 				} ?>
 			<!--
