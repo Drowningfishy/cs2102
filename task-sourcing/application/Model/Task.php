@@ -80,7 +80,7 @@ class Task extends Model
 
     public function getAssignedTaskByUserEmail($assignee_email)
     {
-        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email FROM tasks_owned t, assign a WHERE t.task_id = a.task_id AND a.assignee_email = :assignee_email";
+        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email,b.bidding_point AS my_bid FROM tasks_owned t, assign a, bids b WHERE t.task_id = a.task_id AND a.assignee_email = :assignee_email AND b.bidder_email = :assignee_email AND b.task_id = t.task_id" ;
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':assignee_email' => $assignee_email
@@ -198,6 +198,7 @@ class Task extends Model
         $query->execute();
         return $query->fetchAll();
     }
+
     
 
     public function getWinnerEmail($task_id) {

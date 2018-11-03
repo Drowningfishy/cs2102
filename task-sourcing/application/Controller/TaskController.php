@@ -159,6 +159,8 @@ class TaskController
         require APP . 'view/_templates/footer.php';
     }
 
+
+
     public function delete($task_id) {
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);

@@ -57,7 +57,7 @@
                <br />
                 <label> Task Description: <?php echo htmlspecialchars($task->description, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
-                <label> Owner point: <?php echo htmlspecialchars($task->owner_email, ENT_QUOTES, 'UTF-8');?> </label>
+                <label> Owner point: <?php echo htmlspecialchars($task->my_bid, ENT_QUOTES, 'UTF-8');?> </label>
                 <div class="clear"></div>
                 <br />
                 <a href="<?php echo URL; ?>task/detail/<?php echo $task -> task_id ?>"><button class="detail" >Detail</button> </a>
