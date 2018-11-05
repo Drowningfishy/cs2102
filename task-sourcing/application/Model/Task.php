@@ -122,7 +122,7 @@ class Task extends Model
 
     public function getBidsByTask($task_id)
     {
-        $sql = "SELECT * FROM bids WHERE task_id = :task_id";
+        $sql = "SELECT * FROM bids WHERE task_id = :task_id AND bidding_point >= All (SELECT expect_point FROM tasks_owned WHERE task_id = :task_id)";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_id' =>  (int)$task_id
@@ -189,15 +189,6 @@ class Task extends Model
     }
     
 
-    public function getTaskByType($task_type) {
-        $sql = "SELECT * FROM tasks_owned where task_type = :task_type";
-        $query = $this->db->prepare($sql);
-        $parameters = array(
-            ':task_type' =>  $task_type
-        );
-        $query->execute();
-        return $query->fetchAll();
-    }
 
     
 
