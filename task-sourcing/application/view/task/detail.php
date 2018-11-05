@@ -59,9 +59,13 @@
 
 
 <ul id="incompleted-tasks">
+   <?php if($winner_email == null){?>
+    <b>===Only bidders whose bidding point larger than expected point will be shown below===</b>
+    <br />
 <?php if (isset($bids) && $bids != null) {
     foreach($bids as $bid) { ?>
-      <?php if($winner_email == null){?>
+     
+        
        <fieldset>
         <label> bidder email:<?php echo htmlspecialchars($bid->bidder_email, ENT_QUOTES, 'UTF-8');?> <label>
         <div class="clear"></div>
