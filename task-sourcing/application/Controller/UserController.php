@@ -54,7 +54,7 @@ class UserController
                 'message' => 'Password and username not match.'
             );
             */
-            $this -> register();
+            header("Location:" . URL. 'user/index');
         }
     }
 

@@ -1,9 +1,11 @@
 CREATE OR REPLACE FUNCTION bid_insert_assertion() RETURNS TRIGGER AS $bid$  
 DECLARE
   task_expect_point NUMERIC;
+  user_point NUMERIC;
     BEGIN  
-        SELECT u.expect_point INTO task_expect_point FROM tasks_owned t WHERE t.task_id = NEW.task_id;
-        IF NEW.bidding_point < task_expect_point THEN
+        SELECT t.expect_point INTO task_expect_point FROM tasks_owned t WHERE t.task_id = NEW.task_id;
+        SELECT t.bidding_point_balance INTO user_point FROM users u WHERE u.email = NEW.bidder_email;
+        IF NEW.bidding_point < task_expect_point OR NEW.bidding_point > user_point THEN
           RAISE EXCEPTION 'Error: Bidding point need be greater than expected point!';
         ELSE
           RETURN NEW; 
@@ -12,6 +14,6 @@ DECLARE
 $bid$  
 LANGUAGE plpgsql;
 
-CREATE TRIGGER bid_assertion BEFORE INSERT UPDATE
-ON tasks_owned FOR EACH ROW
+CREATE TRIGGER bid_assertion BEFORE INSERT OR UPDATE
+ON bids FOR EACH ROW
 EXECUTE PROCEDURE bid_insert_assertion();
