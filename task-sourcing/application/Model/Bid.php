@@ -119,16 +119,13 @@ class Bid extends Model
         } 
     }
 
-    //not used
-    public function pointTransfer($task_id,$bidder_email){
-        $sql="SELECT owner_email,bidding_point 
-            FROM tasks_owned t
-            INNER JOIN bids b ON t.task_id = b.task_id
-            WHERE bidder_email =:bidder_email AND t.task_id =:task_id";
+    public function pointTransfer($valueToAdd,$bidder_email,$owner_email){
+        $sql="SELECT pointTransfer(:valueToAdd,:bidder_email,:owner_email)";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':bidder_email' => $bidder_email,
-            ':task_id' => $task_id
+            ':valueToAdd' => $valueToAdd,
+            ':owner_email' => $owner_email,
         );
         try{
             $query ->execute($parameters);

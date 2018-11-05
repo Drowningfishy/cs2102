@@ -83,12 +83,7 @@ class BidController
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if($this -> Bid -> assignWinner($task_id, $bidder_email)){
                     
-
-                    $owner_account = $this -> User -> getUserByEmail($task -> owner_email);
-                    $this -> User -> addValue($owner_account,$bidding_point);
-
-                    $bidder_account = $this -> User -> getUserByEmail($bidder_email);
-                    $this -> User -> deductValue($bidder_account,$bidding_point);
+                    $this -> Bid -> pointTransfer($bidding_point,$bidder_email,$task -> owner_email);
 
                 }
                 header("Location:" . URL. "task/detail/". $task_id);
