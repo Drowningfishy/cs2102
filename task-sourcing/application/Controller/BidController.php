@@ -34,7 +34,7 @@ class BidController
         if ($task && Helper::logged_in() && !($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
             if ($this -> Bid -> havebidded($task_id, $_SESSION['login_user'] -> email)==null) {
             if ($this -> Bid -> createBid($task_id, $_SESSION['login_user'] -> email, $value)) {
-                header("Location:" . );
+                header("Location:" . URL. "task/detail/". $task_id);
             } else {
                 //header("Location:" . URL. "task/detail/". $task_id);
                 echo '<script language="JavaScript">;alert("You do not have enough points or your point is lower than expected!");location.href="'.URL. "task/detail/". $task_id.'"';
