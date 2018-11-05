@@ -69,7 +69,7 @@ class Task extends Model
 
     public function getBidedTaskByUserEmail($bidder_email)
     {
-        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email, b.bidding_point AS my_bid FROM tasks_owned t, bids b GROUP BY t.owner_email WHERE t.task_id = b.task_id AND b.bidder_email = :bidder_email";
+        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email, b.bidding_point AS my_bid FROM tasks_owned t, bids b WHERE t.task_id = b.task_id AND b.bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':bidder_email' => $bidder_email
