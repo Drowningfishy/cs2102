@@ -69,7 +69,7 @@ class Task extends Model
 
     public function getBidedTaskByUserEmail($bidder_email)
     {
-        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email, b.bidding_point AS my_bid FROM tasks_owned t, bids b WHERE t.task_id = b.task_id AND b.bidder_email = :bidder_email";
+        $sql = "SELECT * FROM getBidedTasks WHERE bidder_email = :bidder_email";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':bidder_email' => $bidder_email
@@ -80,12 +80,7 @@ class Task extends Model
 
     public function getAssignedTaskByUserEmail($assignee_email)
     {
-        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email,b.bidding_point
-         AS my_bid
-         FROM tasks_owned t
-         INNER JOIN assign a ON t.task_id = a.task_id
-         INNER JOIN bids b ON b.task_id = t.task_id
-         WHERE a.assignee_email = :assignee_email AND b.bidder_email = :assignee_email" ;
+        $sql = "SELECT * FROM getAssigned WHERE assignee_email = :assignee_email" ;
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':assignee_email' => $assignee_email
