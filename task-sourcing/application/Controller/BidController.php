@@ -81,13 +81,11 @@ class BidController
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
-                if($this -> Bid -> assignWinner($task_id, $bidder_email)){
-                    
-                    $this -> Bid -> pointTransfer($bidding_point,$bidder_email,$task -> owner_email);
-
+                if(!$this -> Bid -> assignWinner($task_id, $bidder_email)){
+                    echo "<script>alert('The user do not have enough points! Please choose someone else!')</script>";
+                } else {
+                    header("Location:" . URL. "task/detail/". $task_id);
                 }
-                header("Location:" . URL. "task/detail/". $task_id);
-                
             }
         }
     }
