@@ -66,8 +66,11 @@ class Bid extends Model
             ':bidding_point' => $value
         );
         try {
-            $query->execute($parameters);
-            return $sql;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         }
@@ -82,8 +85,11 @@ class Bid extends Model
             ':bidding_point' => $value
         );
         try {
-            $query->execute($parameters);
-            return true;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         }
@@ -97,8 +103,11 @@ class Bid extends Model
             ':bidder_email' => $bidder_email
         );
         try {
-            $query->execute($parameters);
-            return true;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         }
@@ -112,8 +121,11 @@ class Bid extends Model
             ':assignee_email' => $winner_email,
         );
         try {
-            $query->execute($parameters);
-            return true;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         } 

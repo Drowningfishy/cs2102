@@ -153,8 +153,11 @@ class Task extends Model
             ':owner_email' => $owner_email
         );
         try {
-            $query->execute($parameters);
-            return $sql;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         }
@@ -171,8 +174,11 @@ class Task extends Model
             ':task_id' =>  (int)$task_id
         );
         try {
-            $query->execute($parameters);
-            return true;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         }
@@ -186,8 +192,11 @@ class Task extends Model
             ':task_id' =>  (int)$task_id
         );
         try {
-            $query->execute($parameters);
-            return true;
+            if ($query->execute($parameters)){
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             return false;
         }
