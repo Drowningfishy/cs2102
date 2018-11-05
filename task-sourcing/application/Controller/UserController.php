@@ -46,7 +46,8 @@ class UserController
                 'message' => 'You have logged in.'
             );
             */
-            header("Location:" . URL);
+            echo '<script language="JavaScript">alert("You have successfully logged in!");location.href= "index"; </script>';
+            //header("Location:" . URL);
         } else {
             /*
             $_SESSION['message'] = array(
@@ -54,20 +55,22 @@ class UserController
                 'message' => 'Password and username not match.'
             );
             */
-            header("Location:" . URL. 'user/index');
+            echo '<script language="JavaScript">alert("Your email/password is wrong!");location.href= "index"; </script>';
+            //header("Location:" . URL. 'user/index');
         }
     }
 
     public function logout() {
         if (Helper::logged_in()) {
             $this ->User -> logout();
-            $this -> index();
+            //$this -> index();
             /* $_SESSION['message'] = array(
                 'status' => 'ok',
                 'message' => 'You have logged out.'
             ); */
         }
-        header('Location:' . URL);
+        echo '<script language="JavaScript">alert("You have successfully logged out!");location.href= "index"; </script>';
+        //header('Location:' . URL);
     }
 
     public function admin() {

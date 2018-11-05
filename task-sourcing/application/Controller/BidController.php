@@ -41,7 +41,7 @@ class BidController
             }
         } else {
             if ($this -> Bid -> updateBid($task_id, $_SESSION['login_user'] -> email, $value)) {
-                header("Location:" . URL. "task/detail/". $task_id);
+                echo '<script language="JavaScript">alert("Update bid successfully!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
             } else {
                 echo '<script language="JavaScript">alert("You do not have enough points or your point is lower than expected!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
             }

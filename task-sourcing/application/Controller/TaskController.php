@@ -116,11 +116,13 @@ class TaskController
         $name = $_POST['taskname'];
         $point = $_POST['point'];
         $description = $_POST['taskDes'];
-        $type=$_POST['taskType'];
+        $type=$_POST['taskType'];        
         if (Helper::logged_in() && $this -> Task -> createTask($name, $description,$type, $point, $_SESSION['login_user'] -> email)) {
-            header("Location:" . URL. "task/index");
+            echo '<script language="JavaScript">alert("Task created!");location.href= "index"; </script>';
+            //header("Location:" . URL. "task/index");
         } else {
-            header("Location:" . URL. "task/index");
+            echo '<script language="JavaScript">alert("Task creation failed!");location.href= "index"; </script>';
+            //header("Location:" . URL. "task/index");
         }
     }
 
@@ -137,9 +139,11 @@ class TaskController
                 $description = $_POST['newDes'];
                 $point = $_POST['newPoint'];
                 if ($this -> Task -> updateTask($id, $name, $description,$point)) {
-                    header("Location:" . URL. "task/detail/". $id);
+                    echo '<script language="JavaScript">alert("You have updated your task!");location.href= "'.URL. "task/detail/". $task_id.'"; </script>';
+                    //header("Location:" . URL. "task/detail/". $id);
                 } else {
-                    header("Location:" . URL. "task/detail/". $id);
+                    echo '<script language="JavaScript">alert("Updation failed!");location.href= "'.URL. "task/detail/". $task_id.'"; </script>';
+                    //header("Location:" . URL. "task/detail/". $id);
                 }
             }
         }
@@ -167,9 +171,11 @@ class TaskController
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 var_dump($task);
                 if ($this -> Task -> deleteTask($task_id)) {
-                    header("Location:" . URL. "task/index");
+                    //echo '<script language="JavaScript">alert("Delete task successfully!");location.href= "index"; </script>';
+                    //header("Location:" . URL. "task/index");
                 } else {
-                    header("Location:" . URL. "task/index");
+                    //echo '<script language="JavaScript">alert("Task is assigned... Cannot delete");location.href= "index"; </script>';
+                    //header("Location:" . URL. "task/index");
                 }
             }
         } else {

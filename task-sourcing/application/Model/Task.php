@@ -164,8 +164,8 @@ class Task extends Model
     }
 
     //TODO: Fill into correct sql and correct parameters.
-    public function updateTask($task_id, $name, $description,$task_type ,$point) {
-        $sql = "UPDATE tasks_owned SET task_name = :task_name, expect_point = :expect_point, description = :description,WHERE task_id = :task_id";
+    public function updateTask($task_id, $name, $description,$point) {
+        $sql = "UPDATE tasks_owned SET task_name = :task_name, expect_point = :expect_point, description = :description WHERE task_id = :task_id";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_name' => $name,
