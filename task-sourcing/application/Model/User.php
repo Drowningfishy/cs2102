@@ -96,37 +96,6 @@ class User extends Model
         }
     }
 
-    public function addValue($account, $valueToAdd) {
-        $sql = "UPDATE users SET bidding_point_balance = :new_balance WHERE email = :email";
-        $query = $this -> db -> prepare($sql);
-        $parameters = array(
-            ':new_balance' => $account -> bidding_point_balance + $valueToAdd,
-            ':email' => $account -> email);
-        try {
-            $query->execute($parameters);
-            return true;
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
-
-    public function deductValue($account,$valueToDeduct){
-        $sql = "UPDATE users SET bidding_point_balance = :new_balance WHERE email = :email";
-        $query = $this -> db -> prepare($sql);
-        $parameters = array(
-            'new_balance' => $account -> bidding_point_balance - $valueToDeduct,
-            ':email' => $account -> email);
-        try{
-            $query -> execute($parameters);
-            return true;
-        }
-        catch(PDOException $e){
-            return false;
-        }
-    }
-
-
-    //TODO: [Refactor]Future admin add value will go through this first and addValue will be made private.
     public function adminAddValue($email, $valueToAdd) {
         if (Helper::is_admin()) {
             $sql = "SELECT name, email, password, bidding_point_balance, is_admin FROM users WHERE email = :email";

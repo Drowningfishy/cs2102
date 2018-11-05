@@ -80,7 +80,12 @@ class Task extends Model
 
     public function getAssignedTaskByUserEmail($assignee_email)
     {
-        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email,b.bidding_point AS my_bid FROM tasks_owned t, assign a, bids b WHERE t.task_id = a.task_id AND a.assignee_email = :assignee_email AND b.bidder_email = :assignee_email AND b.task_id = t.task_id" ;
+        $sql = "SELECT t.task_id, t.task_name, t.expect_point, t.description,t.task_type, t.owner_email,b.bidding_point
+         AS my_bid
+         FROM tasks_owned t
+         INNER JOIN assign a ON t.task_id = a.task_id
+         INNER JOIN bids b ON b.task_id = t.task_id
+         WHERE a.assignee_email = :assignee_email AND b.bidder_email = :assignee_email" ;
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':assignee_email' => $assignee_email
@@ -122,7 +127,7 @@ class Task extends Model
 
     public function getBidsByTask($task_id)
     {
-        $sql = "SELECT * FROM bids WHERE task_id = :task_id AND bidding_point >= All (SELECT expect_point FROM tasks_owned WHERE task_id = :task_id)";
+        $sql = "SELECT * FROM bids WHERE task_id = :task_id";
         $query = $this->db->prepare($sql);
         $parameters = array(
             ':task_id' =>  (int)$task_id
@@ -189,6 +194,15 @@ class Task extends Model
     }
     
 
+    public function getTaskByType($task_type) {
+        $sql = "SELECT * FROM tasks_owned where task_type = :task_type";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_type' =>  $task_type
+        );
+        $query->execute();
+        return $query->fetchAll();
+    }
 
     
 

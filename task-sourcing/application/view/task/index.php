@@ -25,6 +25,7 @@
     <input type="reset" value="reset">
     <input type="submit" value="submit">
     </form>
+    <div style="margin-top:50px"></div>
 
 
       <?php 

@@ -49,7 +49,7 @@
 <?php if ($task && isset($_SESSION['login_user']) && ($task -> owner_email != $_SESSION['login_user'] -> email && !(isset($_SESSION['login_user']) && $_SESSION['login_user'] -> is_admin))) { ?>
   
   <form action = "/bid/createBid/<?php echo $task -> task_id;?>" method="post">   
-    Bidding Point*: <input type="text" name="point" placeholder = "Please enter bidding point" required="required">
+    Bidding Point*: <input type="text" name="point" placeholder = ">=expect_point" required="required">
     <input type="reset" value="reset">
     <input type="submit" value="submit">
 </form>
@@ -60,7 +60,7 @@
 
 <ul id="incompleted-tasks">
    <?php if($winner_email == null){?>
-    <b>===Only bidders whose bidding point larger than expected point will be shown below===</b>
+    <b>--Potential bidders--</b>
     <br />
 <?php if (isset($bids) && $bids != null) {
     foreach($bids as $bid) { ?>
