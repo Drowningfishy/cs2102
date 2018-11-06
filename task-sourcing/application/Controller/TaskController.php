@@ -185,7 +185,7 @@ class TaskController
                     echo '<script language="JavaScript">alert("Delete task successfully!");location.href= "index"; </script>';
                     //header("Location:" . URL. "task/index");
                 } else {
-                    echo '<script language="JavaScript">alert("Task is assigned... Cannot delete");location.href="'.URL.'task/detail/'.$id.'"; </script>';
+                    echo '<script language="JavaScript">alert("Task is assigned... Cannot delete");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
 
                     //header("Location:" . URL. "task/index");
                 }
@@ -202,10 +202,10 @@ class TaskController
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if ($this -> Task -> assignWinner($task_id, $winner_email)) {
                     //header("Location:" . URL. "task/detail/". $id);
-                    echo '<script language="JavaScript">alert("Pick user succeed!");location.href="'.URL.'task/detail/'.$id.'"; </script>';
+                    echo '<script language="JavaScript">alert("Pick user succeed!");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
                 } else {
                     //header("Location:" . URL. "task/detail/". $id);
-                    echo '<script language="JavaScript">alert("Pick user failed! Maybe the user do not have enough balance!");location.href="'.URL.'task/detail/'.$id.'"; </script>';
+                    echo '<script language="JavaScript">alert("Pick user failed! Maybe the user do not have enough balance!");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
                 }
             }
         } else {
