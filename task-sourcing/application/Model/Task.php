@@ -196,19 +196,45 @@ class Task extends Model
             return false;
         }
     }
-    
 
-    public function getTaskByType($task_type) {
-        $sql = "SELECT * FROM tasks_owned where task_type = :task_type";
+    public function getTaskTypeNumber($type){
+        $sql = "SELECT num FROM typeNumber WHERE task_type = :task_type";
         $query = $this->db->prepare($sql);
         $parameters = array(
-            ':task_type' =>  $task_type
+            ':task_type' => $type,
         );
+        $query->execute($parameters);
+        return $query->fetchAll();
+
+    }
+
+    public function getTaskNumber(){
+        $sql = "SELECT COUNT(*) FROM tasks_owned";
+        $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
 
+
+    public function getHighestPoint($task_id){
+        $sql = "SELECT Max FROM maxPoint WHERE task_id = :task_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id'=> $task_id
+        );
+        $query->execute($parameters);
+        return $query->fetchAll();
+    }
     
+    public function getLowestPoint($task_id){
+        $sql = "SELECT Min FROM minPoint WHERE task_id = :task_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(
+            ':task_id'=> $task_id
+        );
+        $query->execute($parameters);
+        return $query->fetchAll();
+    }
 
     public function getWinnerEmail($task_id) {
         $sql = "SELECT assignee_email FROM assign WHERE task_id = :task_id";

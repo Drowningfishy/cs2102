@@ -21,7 +21,7 @@
                 <div class="clear"></div>
                 <br />
                 <form action = "/user/addValue/<?php echo $user -> email;?>" method="post">   
-                    Value to Add*: <input type="text" name="point" placeholder = "Please enter bidding point to give" required="required">
+                    Value to Add/Deduct*: <input type="text" name="point" placeholder = "Please enter bidding point to add/deduct" required="required">
                     <input type="submit" value="submit">
                 </form>
                 </fieldset>

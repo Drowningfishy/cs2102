@@ -6,17 +6,17 @@ DROP VIEW IF EXISTS getBidedTasks;
 
 
 CREATE VIEW maxPoint AS
-SELECT b.task_id, b.bidding_point AS Max
+SELECT b.task_id AS task_id, b.bidding_point AS Max
 FROM bids b, tasks_owned t
 WHERE b.bidding_point >= ANY (SELECT bidding_point FROM bids) AND t.task_id = b.task_id;
 
 CREATE VIEW minPoint AS
-SELECT b.task_id, b.bidding_point AS Min
+SELECT b.task_id AS task_id, b.bidding_point AS Min
 FROM bids b, tasks_owned t
 WHERE b.bidding_point <= ANY(SELECT bidding_point FROM bids) AND t.task_id = b.task_id;
 
 CREATE VIEW typeNumber AS
-SELECT task_type,COUNT(*)
+SELECT task_type,COUNT(*) AS num
 FROM tasks_owned 
 GROUP BY task_type
 ORDER BY task_type;

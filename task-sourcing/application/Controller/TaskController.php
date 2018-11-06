@@ -26,25 +26,33 @@ class TaskController
         if(Helper::logged_in()){
             if (isset($_POST['taskType'])) {
                 $type=$_POST['taskType'];
+                //var_dump($type);
                 if (strstr($type,'All Tasks'))
-                {   $tasks = $this -> Task -> getAllTasks();
-                } else { 
-                    $tasks = $this -> Task -> getTaskByTaskType($type);
+                    {   $tasks = $this -> Task -> getAllTasks();
+                        $number = $this -> Task -> getTaskNumber()[0]->count;
+                    } else { 
+                        $tasks = $this -> Task -> getTaskByTaskType($type);
+                        if($this -> Task -> getTaskTypeNumber($type)!=null){
+                            $number = $this -> Task -> getTaskTypeNumber($type)[0]->num;
+                        }
+                        else{
+                            $number = 0;
+                        }
+                    }
                 }
-            }
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/task/index.php';
-            require APP . 'view/_templates/footer.php';
+                require APP . 'view/_templates/header.php';
+                require APP . 'view/task/index.php';
+                require APP . 'view/_templates/footer.php';
 
-        } else{
-             require APP . 'view/_templates/header.php';
+            } else{
+               require APP . 'view/_templates/header.php';
             //require APP . 'view/user/index.php';
-            require APP . 'view/user/login.php';
-            require APP . 'view/_templates/footer.php';
+               require APP . 'view/user/login.php';
+               require APP . 'view/_templates/footer.php';
 
-        }
-    }
-     public function winner($task_id) {
+           }
+       }
+       public function winner($task_id) {
         $winner_email = $this -> Task -> getWinnerEmail($task_id);
         return $winner_email;
 
@@ -81,10 +89,24 @@ class TaskController
         if (isset($task_id)) {
             $task = $this -> Task -> getTaskById($task_id);
             $bids = $this -> Task -> getBidsByTask($task_id);
-            var_dump($bids);
+            //var_dump($bids);
             $winner_email = $this -> Task -> getWinnerEmail($task_id);
-            var_dump($winner_email);
+            //var_dump($winner_email);
             //var_dump($task);
+            if($this -> Task -> getHighestPoint($task_id)!=null){
+                $highest_point = $this -> Task -> getHighestPoint($task_id)[0]->max;
+            }
+            else{
+                $highest_point = "no bidder yet";
+            }
+            //var_dump($highest_point);
+            if($this -> Task -> getLowestPoint($task_id)!=null){
+                $lowest_point = $this -> Task -> getLowestPoint($task_id)[0]->min;
+            }
+            else{
+                $lowest_point = "no bidder yet";
+            }
+            //var_dump($lowest_point);
             require APP . 'view/_templates/header.php';
             require APP . 'view/task/detail.php';
             require APP . 'view/_templates/footer.php';
@@ -185,7 +207,7 @@ class TaskController
                     echo '<script language="JavaScript">alert("Delete task successfully!");location.href= "index"; </script>';
                     //header("Location:" . URL. "task/index");
                 } else {
-                    echo '<script language="JavaScript">alert("Task is assigned... Cannot delete");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
+                    echo '<script language="JavaScript">alert("Task is assigned/already has bidders... Cannot delete");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
 
                     //header("Location:" . URL. "task/index");
                 }
@@ -196,21 +218,4 @@ class TaskController
         }
     }
 
-    public function assignWinner($task_id, $winner_email) {
-        if (isset($task_id) && isset($winner_email)) {
-            $task = $this -> Task -> getTaskById($task_id);
-            if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
-                if ($this -> Task -> assignWinner($task_id, $winner_email)) {
-                    //header("Location:" . URL. "task/detail/". $id);
-                    echo '<script language="JavaScript">alert("Pick user succeed!");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
-                } else {
-                    //header("Location:" . URL. "task/detail/". $id);
-                    echo '<script language="JavaScript">alert("Pick user failed! Maybe the user do not have enough balance!");location.href="'.URL.'task/detail/'.$task_id.'"; </script>';
-                }
-            }
-        } else {
-            //header("Location:" . URL. "task/index");
-            echo '<script language="JavaScript">alert("Invalid URL!");location.href="'.URL.'task/index'.'"; </script>';
-        }
-    }
 }

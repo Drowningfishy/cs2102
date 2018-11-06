@@ -68,9 +68,11 @@ class UserController
                 'status' => 'ok',
                 'message' => 'You have logged out.'
             ); */
+            echo '<script language="JavaScript">alert("You have successfully logged out!");location.href= "/user/index"; </script>';
         }
-        echo '<script language="JavaScript">alert("You have successfully logged out!");location.href= "/user/index"; </script>';
-        //header('Location:' . URL);
+        else{
+            header('Location:' . URL);
+        }
     }
 
     public function admin() {
