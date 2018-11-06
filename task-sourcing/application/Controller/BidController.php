@@ -34,7 +34,8 @@ class BidController
         if ($task && Helper::logged_in() && !($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
             if ($this -> Bid -> havebidded($task_id, $_SESSION['login_user'] -> email)==null) {
             if ($this -> Bid -> createBid($task_id, $_SESSION['login_user'] -> email, $value)) {
-                header("Location:" . URL. "task/detail/". $task_id);
+                //header("Location:" . URL. "task/detail/". $task_id);
+                echo '<script language="JavaScript">alert("Bid successful!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
             } else {
                 //header("Location:" . URL. "task/detail/". $task_id);
                 echo '<script language="JavaScript">alert("You do not have enough points or your point is lower than expected!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
@@ -56,9 +57,12 @@ class BidController
         $task = $this -> Task -> getTaskById($task_id);
         if ($task && Helper::logged_in() && !($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
             if ($this -> Bid -> updateBid($task_id, $_SESSION['login_user'] -> email, $value)) {
-                header("Location:" . URL. "task/detail/". $task_id);
+                //header("Location:" . URL. "task/detail/". $task_id);
+                echo '<script language="JavaScript">alert("Update successful!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
+
             } else {
-                echo '<script language="JavaScript">;alert("You do not have enough points or your point is lower than expected!");location.href="'.URL. "task/detail/". $task_id.'"';
+                //echo '<script language="JavaScript">alert("You do not have enough points or your point is lower than expected!");location.href="'.URL. "task/detail/". $task_id.'"';
+                echo '<script language="JavaScript">alert("You do not have enough points or your point is lower than expected!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
             }
         }
     }
@@ -68,9 +72,11 @@ class BidController
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if ($this -> Bid -> deleteBid($task_id, $bidder_email)) {
-                   header("Location:" . URL. "task/detail/". $task_id);
+                   //header("Location:" . URL. "task/detail/". $task_id);
+                   echo '<script language="JavaScript">alert("Bid deleted!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
                 } else {
-                   header("Location:" . URL. "task/detail/". $task_id);
+                   //header("Location:" . URL. "task/detail/". $task_id);
+                   echo '<script language="JavaScript">alert("Cannot delete this bid!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
                 }
             }
         }
@@ -83,9 +89,10 @@ class BidController
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if(!$this -> Bid -> assignWinner($task_id, $bidder_email)){
-                    echo "<script>alert('The user do not have enough points! Please choose someone else!')</script>";
+                    echo '<script language="JavaScript">alert("The user do not have enough balance! Please pick another one!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
                 } else {
-                    header("Location:" . URL. "task/detail/". $task_id);
+                    //header("Location:" . URL. "task/detail/". $task_id);
+                    echo '<script language="JavaScript">alert("Pick successful!");location.href="'.URL. "task/detail/". $task_id.'"; </script>';
                 }
             }
         }

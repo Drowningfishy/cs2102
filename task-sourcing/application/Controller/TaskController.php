@@ -24,12 +24,17 @@ class TaskController
     }
     public function index() {
         if(Helper::logged_in()){
-        $type=$_POST['taskType'];
-        if (strstr($type,'All Tasks')){$tasks = $this -> Task -> getAllTasks();}
-        else {$tasks = $this -> Task -> getTaskByTaskType($type);}
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/task/index.php';
-        require APP . 'view/_templates/footer.php';
+            if (isset($_POST['taskType'])) {
+                $type=$_POST['taskType'];
+                if (strstr($type,'All Tasks'))
+                {   $tasks = $this -> Task -> getAllTasks();
+                } else { 
+                    $tasks = $this -> Task -> getTaskByTaskType($type);
+                }
+            }
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/task/index.php';
+            require APP . 'view/_templates/footer.php';
 
         } else{
              require APP . 'view/_templates/header.php';
@@ -53,7 +58,8 @@ class TaskController
             require APP . 'view/task/mytask.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            header("Location:" . URL. "user/index");
+            //header("Location:" . URL. "user/index");
+            echo '<script language="JavaScript">alert("You have not logged in!");location.href="'.URL.'user/index'.'"; </script>';
         }
     }
 
@@ -64,7 +70,8 @@ class TaskController
             require APP . 'view/task/mybid.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            header("Location:" . URL. "user/index");
+            //header("Location:" . URL. "user/index");
+            echo '<script language="JavaScript">alert("You have not logged in!");location.href="'.URL.'user/index'.'"; </script>';
         }
     }
 
@@ -82,7 +89,9 @@ class TaskController
             require APP . 'view/task/detail.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            header("Location:" . URL. "task/index");
+            //header("Location:" . URL. "task/index");
+            echo '<script language="JavaScript">alert("Invalid URL!");location.href= "index"; </script>';
+
         }
     }
 
@@ -102,10 +111,12 @@ class TaskController
                 require APP . 'view/task/UpdateTask.php';
                 require APP . 'view/_templates/footer.php';
             } else {
-                header("Location:" . URL. "task/index");
+                //header("Location:" . URL. "task/index");
+                echo '<script language="JavaScript">alert("Fail to update!");location.href= "index"; </script>';
             }
         } else {
-            header("Location:" . URL. "task/index");
+            //header("Location:" . URL. "task/index");
+            echo '<script language="JavaScript">alert("Invalid URL!");location.href= "index"; </script>';
         }
     }
 
@@ -171,15 +182,17 @@ class TaskController
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 var_dump($task);
                 if ($this -> Task -> deleteTask($task_id)) {
-                    //echo '<script language="JavaScript">alert("Delete task successfully!");location.href= "index"; </script>';
+                    echo '<script language="JavaScript">alert("Delete task successfully!");location.href= "index"; </script>';
                     //header("Location:" . URL. "task/index");
                 } else {
-                    //echo '<script language="JavaScript">alert("Task is assigned... Cannot delete");location.href= "index"; </script>';
+                    echo '<script language="JavaScript">alert("Task is assigned... Cannot delete");location.href="'.URL.'task/detail/'.$id.'"; </script>';
+
                     //header("Location:" . URL. "task/index");
                 }
             }
         } else {
-            header("Location:" . URL. "task/index");
+            //header("Location:" . URL. "task/index");
+            echo '<script language="JavaScript">alert("Invalid URL!");location.href="'.URL.'task/index"; </script>';
         }
     }
 
@@ -188,13 +201,16 @@ class TaskController
             $task = $this -> Task -> getTaskById($task_id);
             if ($task && Helper::logged_in() && ($task -> owner_email == $_SESSION['login_user'] -> email || Helper::is_admin())) {
                 if ($this -> Task -> assignWinner($task_id, $winner_email)) {
-                    header("Location:" . URL. "task/detail/". $id);
+                    //header("Location:" . URL. "task/detail/". $id);
+                    echo '<script language="JavaScript">alert("Pick user succeed!");location.href="'.URL.'task/detail/'.$id.'"; </script>';
                 } else {
-                    header("Location:" . URL. "task/detail/". $id);
+                    //header("Location:" . URL. "task/detail/". $id);
+                    echo '<script language="JavaScript">alert("Pick user failed! Maybe the user do not have enough balance!");location.href="'.URL.'task/detail/'.$id.'"; </script>';
                 }
             }
         } else {
-            header("Location:" . URL. "task/index");
+            //header("Location:" . URL. "task/index");
+            echo '<script language="JavaScript">alert("Invalid URL!");location.href="'.URL.'task/index'.'"; </script>';
         }
     }
 }
