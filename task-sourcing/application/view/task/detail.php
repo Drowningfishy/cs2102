@@ -85,11 +85,14 @@
 
                     <a href="<?php echo URL; ?>bid/pick/<?php echo $bid -> task_id. '/'. $bid -> bidder_email. '/'. $bid -> bidding_point;?>"><button class="detail">Pick</button></a>
 
+
                   <?php } ?> 
+                   </fieldset>
+                     <br />
                 <?php } ?>
 
-              </fieldset>
-              <br />
+              
+             
 
             <?php }
           }
